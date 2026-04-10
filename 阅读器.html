@@ -170,7 +170,7 @@
         .vsc-line:hover { background:#2a2d2e; }
         .vsc-line-num { width:50px; text-align:right; padding-right:16px; color:#858585; user-select:none; flex-shrink:0; font-size:12px; }
         .vsc-line-code { flex:1; white-space:pre-wrap; word-break:break-all; }
-        .vsc-comment { color:#6a9955; }
+        .vsc-comment { color:#4e7a45; }
         .vsc-keyword { color:#569cd6; }
         .vsc-string { color:#ce9178; }
         .vsc-func { color:#dcdcaa; }
@@ -280,9 +280,127 @@
             .setting-row select { width: 100%; }
             .vsc-sidebar { width:140px; }
         }
+
+        /* ===== 伪装: Photoshop ===== */
+        #photoshop-mockup { display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:#535353; z-index:9999; flex-direction:column; font-family:'Segoe UI','Microsoft YaHei',sans-serif; color:#d6d6d6; font-size:12px; }
+        .ps-menubar { height:26px; background:#3c3c3c; display:flex; align-items:center; padding:0 8px; gap:14px; font-size:12px; color:#ccc; border-bottom:1px solid #222; }
+        .ps-menubar span:hover { color:#fff; background:#505050; padding:1px 5px; border-radius:2px; }
+        .ps-optionsbar { height:34px; background:#444; border-bottom:1px solid #333; display:flex; align-items:center; padding:0 10px; gap:8px; font-size:11px; color:#bbb; }
+        .ps-optionsbar select, .ps-optionsbar input { background:#2c2c2c; color:#ccc; border:1px solid #555; padding:2px 4px; font-size:10px; border-radius:2px; }
+        .ps-body { display:flex; flex:1; overflow:hidden; }
+        .ps-toolbox { width:42px; background:#3c3c3c; border-right:1px solid #222; display:flex; flex-direction:column; align-items:center; padding:4px 0; gap:2px; flex-shrink:0; }
+        .ps-tool { width:28px; height:28px; display:flex; align-items:center; justify-content:center; font-size:14px; cursor:pointer; border-radius:3px; color:#aaa; }
+        .ps-tool:hover { background:#555; }
+        .ps-tool.active { background:#4a90d9; color:#fff; }
+        .ps-canvas-area { flex:1; background:#404040; display:flex; justify-content:center; align-items:center; overflow:hidden; position:relative; }
+        .ps-canvas { background:#535353; box-shadow:0 4px 20px rgba(0,0,0,0.5); position:relative; overflow:hidden; }
+        .ps-canvas-checker { position:absolute; top:0; left:0; width:100%; height:100%; background-image:repeating-conic-gradient(#e0e0e0 0% 25%, #fff 0% 50%); background-size:16px 16px; }
+        .ps-canvas-content { position:relative; z-index:1; padding:20px; font-size:12px; line-height:1.6; color:#333; text-align:justify; }
+        .ps-right-panel { width:260px; background:#3c3c3c; border-left:1px solid #222; overflow-y:auto; flex-shrink:0; }
+        .ps-panel-header { padding:6px 10px; background:#2c2c2c; font-size:11px; color:#bbb; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #222; }
+        .ps-panel-body { padding:8px; }
+        .ps-layer { display:flex; align-items:center; gap:6px; padding:4px 6px; font-size:11px; border-bottom:1px solid #444; cursor:pointer; }
+        .ps-layer:hover { background:#4a4a4a; }
+        .ps-layer.active { background:#4a90d9; color:#fff; }
+        .ps-layer-thumb { width:28px; height:28px; background:#555; border:1px solid #666; border-radius:2px; display:flex; align-items:center; justify-content:center; font-size:8px; overflow:hidden; }
+        .ps-layer-eye { font-size:10px; color:#999; width:16px; text-align:center; }
+        .ps-statusbar { height:22px; background:#3c3c3c; border-top:1px solid #222; display:flex; align-items:center; padding:0 10px; font-size:10px; color:#888; justify-content:space-between; }
+        @media (max-width: 600px) { .ps-right-panel { width:160px; } .ps-toolbox { width:32px; } .ps-tool { width:22px; height:22px; font-size:11px; } }
+
+        /* ===== 伪装: Illustrator ===== */
+        #illustrator-mockup { display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:#2c2c2c; z-index:9999; flex-direction:column; font-family:'Segoe UI','Microsoft YaHei',sans-serif; color:#d6d6d6; font-size:12px; }
+        .ai-menubar { height:26px; background:#323232; display:flex; align-items:center; padding:0 8px; gap:14px; font-size:12px; color:#ccc; border-bottom:1px solid #1a1a1a; }
+        .ai-menubar span:hover { color:#fff; background:#505050; padding:1px 5px; border-radius:2px; }
+        .ai-optionsbar { height:34px; background:#3a3a3a; border-bottom:1px solid #222; display:flex; align-items:center; padding:0 10px; gap:8px; font-size:11px; color:#bbb; }
+        .ai-body { display:flex; flex:1; overflow:hidden; }
+        .ai-toolbox { width:42px; background:#323232; border-right:1px solid #1a1a1a; display:flex; flex-direction:column; align-items:center; padding:4px 0; gap:2px; flex-shrink:0; }
+        .ai-tool { width:28px; height:28px; display:flex; align-items:center; justify-content:center; font-size:14px; cursor:pointer; border-radius:3px; color:#aaa; }
+        .ai-tool:hover { background:#555; }
+        .ai-tool.active { background:#ff9a00; color:#222; }
+        .ai-canvas-area { flex:1; background:#1e1e1e; display:flex; justify-content:center; align-items:center; overflow:hidden; }
+        .ai-artboard { background:#fff; box-shadow:0 2px 15px rgba(0,0,0,0.6); position:relative; }
+        .ai-artboard-label { position:absolute; top:-18px; left:0; font-size:10px; color:#888; }
+        .ai-artboard-content { padding:24px; font-size:12px; line-height:1.7; color:#333; text-align:justify; }
+        .ai-right-panel { width:240px; background:#323232; border-left:1px solid #1a1a1a; overflow-y:auto; flex-shrink:0; }
+        .ai-panel-section { border-bottom:1px solid #444; }
+        .ai-panel-header { padding:6px 10px; font-size:11px; color:#bbb; display:flex; justify-content:space-between; cursor:pointer; }
+        .ai-panel-header:hover { background:#3a3a3a; }
+        .ai-panel-row { padding:4px 10px; font-size:10px; color:#999; display:flex; justify-content:space-between; align-items:center; }
+        .ai-panel-row input { width:50px; background:#2c2c2c; color:#ccc; border:1px solid #555; padding:1px 3px; font-size:10px; text-align:center; }
+        .ai-color-swatch { width:14px; height:14px; border:1px solid #666; border-radius:2px; display:inline-block; }
+        .ai-statusbar { height:22px; background:#323232; border-top:1px solid #1a1a1a; display:flex; align-items:center; padding:0 10px; font-size:10px; color:#888; justify-content:space-between; }
+        @media (max-width: 600px) { .ai-right-panel { width:150px; } .ai-toolbox { width:32px; } }
+
+        /* ===== 伪装: 墨刀 ===== */
+        #modao-mockup { display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:#f5f5f5; z-index:9999; flex-direction:column; font-family:'PingFang SC','Microsoft YaHei',sans-serif; color:#333; font-size:13px; }
+        .md-header { height:48px; background:#fff; border-bottom:1px solid #e8e8e8; display:flex; align-items:center; padding:0 16px; }
+        .md-header-logo { font-size:16px; font-weight:600; color:#4a90d9; margin-right:20px; display:flex; align-items:center; gap:6px; }
+        .md-header-tabs { display:flex; gap:0; height:100%; align-items:flex-end; }
+        .md-header-tab { padding:8px 16px; font-size:13px; color:#666; cursor:pointer; border-bottom:2px solid transparent; }
+        .md-header-tab.active { color:#4a90d9; border-bottom:2px solid #4a90d9; font-weight:600; }
+        .md-header-right { margin-left:auto; display:flex; align-items:center; gap:12px; font-size:12px; color:#999; }
+        .md-body { display:flex; flex:1; overflow:hidden; }
+        .md-sidebar { width:220px; background:#fff; border-right:1px solid #e8e8e8; overflow-y:auto; flex-shrink:0; }
+        .md-sidebar-title { padding:12px 16px; font-size:12px; color:#999; font-weight:600; border-bottom:1px solid #f0f0f0; }
+        .md-page-item { padding:8px 16px; font-size:12px; cursor:pointer; display:flex; align-items:center; gap:8px; }
+        .md-page-item:hover { background:#f8f8f8; }
+        .md-page-item.active { background:#e8f0fe; color:#4a90d9; }
+        .md-page-thumb { width:36px; height:24px; background:#e0e0e0; border:1px solid #d0d0d0; border-radius:2px; flex-shrink:0; }
+        .md-canvas-area { flex:1; background:#f0f0f0; display:flex; justify-content:center; align-items:flex-start; overflow:auto; padding:30px; }
+        .md-phone-frame { width:375px; min-height:667px; background:#fff; border-radius:28px; box-shadow:0 4px 25px rgba(0,0,0,0.15); border:8px solid #1a1a1a; position:relative; overflow:hidden; display:flex; flex-direction:column; }
+        .md-phone-notch { width:120px; height:24px; background:#1a1a1a; border-radius:0 0 14px 14px; margin:0 auto; }
+        .md-phone-content { padding:16px; font-size:13px; line-height:1.7; color:#333; text-align:justify; min-height:500px; }
+        .md-phone-home { width:36px; height:4px; background:#1a1a1a; border-radius:2px; margin:8px auto 12px; }
+        .md-right-panel { width:240px; background:#fff; border-left:1px solid #e8e8e8; overflow-y:auto; flex-shrink:0; padding:12px; }
+        .md-prop-title { font-size:11px; color:#999; font-weight:600; margin:8px 0 4px; }
+        .md-prop-row { display:flex; justify-content:space-between; align-items:center; padding:3px 0; font-size:11px; color:#666; }
+        .md-prop-row input { width:54px; background:#f5f5f5; border:1px solid #e0e0e0; padding:2px 4px; font-size:11px; text-align:center; border-radius:3px; color:#333; }
+        .md-statusbar { height:28px; background:#fff; border-top:1px solid #e8e8e8; display:flex; align-items:center; padding:0 16px; font-size:11px; color:#999; justify-content:space-between; }
+        @media (max-width: 700px) { .md-sidebar { width:140px; } .md-right-panel { display:none; } .md-phone-frame { width:280px; min-height:500px; border-radius:20px; border-width:6px; } }
+        @media (max-width: 500px) { .md-sidebar { display:none; } }
+
+        /* ===== 伪装: Sketch ===== */
+        #sketch-mockup { display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:#e8e8e8; z-index:9999; flex-direction:column; font-family:'-apple-system','SF Pro Display','Helvetica Neue','Microsoft YaHei',sans-serif; color:#333; font-size:12px; }
+        .sk-titlebar { height:38px; background:#ececec; display:flex; align-items:center; padding:0 12px; border-bottom:1px solid #ccc; }
+        .sk-titlebar-dots { display:flex; gap:6px; margin-right:14px; }
+        .sk-titlebar-dots span { width:10px; height:10px; border-radius:50%; }
+        .sk-titlebar-center { flex:1; text-align:center; font-size:12px; color:#666; font-weight:500; }
+        .sk-toolbar { height:40px; background:#f6f6f6; border-bottom:1px solid #ddd; display:flex; align-items:center; padding:0 12px; gap:10px; }
+        .sk-toolbar-btn { padding:4px 8px; font-size:11px; color:#555; cursor:pointer; border-radius:4px; display:flex; align-items:center; gap:4px; }
+        .sk-toolbar-btn:hover { background:#e0e0e0; }
+        .sk-toolbar-btn.active { background:#4a90d9; color:#fff; }
+        .sk-body { display:flex; flex:1; overflow:hidden; }
+        .sk-layers { width:220px; background:#fff; border-right:1px solid #ddd; overflow-y:auto; flex-shrink:0; }
+        .sk-layers-title { padding:8px 12px; font-size:11px; color:#999; font-weight:600; text-transform:uppercase; letter-spacing:0.5px; }
+        .sk-layer-item { padding:5px 12px; font-size:11px; cursor:pointer; display:flex; align-items:center; gap:6px; }
+        .sk-layer-item:hover { background:#f4f4f4; }
+        .sk-layer-item.active { background:#4a90d9; color:#fff; border-radius:3px; margin:0 4px; }
+        .sk-layer-icon { font-size:10px; width:16px; text-align:center; }
+        .sk-canvas-area { flex:1; background:#e0e0e0; display:flex; justify-content:center; align-items:center; overflow:auto; }
+        .sk-artboard { background:#fff; box-shadow:0 2px 12px rgba(0,0,0,0.12); position:relative; }
+        .sk-artboard-title { position:absolute; top:-20px; left:0; font-size:11px; color:#999; font-weight:500; }
+        .sk-artboard-content { padding:20px; font-size:12px; line-height:1.7; color:#333; text-align:justify; }
+        .sk-inspector { width:240px; background:#fff; border-left:1px solid #ddd; overflow-y:auto; flex-shrink:0; }
+        .sk-insp-section { border-bottom:1px solid #eee; padding:10px 12px; }
+        .sk-insp-title { font-size:10px; color:#999; font-weight:600; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:6px; }
+        .sk-insp-row { display:flex; justify-content:space-between; align-items:center; padding:2px 0; font-size:11px; color:#555; }
+        .sk-insp-row input { width:48px; background:#f5f5f5; border:1px solid #ddd; padding:2px 4px; font-size:10px; text-align:center; border-radius:3px; color:#333; }
+        .sk-color-preview { width:24px; height:24px; border:1px solid #ddd; border-radius:4px; }
+        .sk-statusbar { height:24px; background:#f6f6f6; border-top:1px solid #ddd; display:flex; align-items:center; padding:0 12px; font-size:10px; color:#999; justify-content:space-between; }
+        @media (max-width: 700px) { .sk-layers { width:140px; } .sk-inspector { width:160px; } }
+        @media (max-width: 500px) { .sk-layers { display:none; } .sk-inspector { display:none; } }
+
+        /* ===== 老板键：隐藏状态 ===== */
+        body.boss-hidden { background:#f0f0f0 !important; overflow:hidden !important; }
+        body.boss-hidden > *:not(#boss-blank) { opacity:0 !important; pointer-events:none !important; position:fixed !important; transform:scale(0) !important; }
+        #boss-blank { display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:99999; background:#f0f0f0; cursor:default; }
+        body.boss-hidden #boss-blank { display:flex; justify-content:center; align-items:center; }
+        #boss-blank-hint { color:#ccc; font-size:12px; font-family:sans-serif; user-select:none; opacity:0; transition:opacity 1.5s 2s; }
+        body.boss-hidden #boss-blank-hint { opacity:1; }
     </style>
 </head>
 <body>
+    <div id="boss-blank"><span id="boss-blank-hint">点击此处或按快捷键恢复</span></div>
 
     <div id="reader-wrapper" style="width:100%;height:100%;display:flex;flex-direction:column;position:relative;z-index:1;">
         <div id="toolbar">
@@ -350,7 +468,11 @@
                                     <span style="background:#e8f5e9;padding:2px 6px;border-radius:3px;border:1px solid #a5d6a7;">📊 机械订单</span><br>
                                     <span style="background:#2d2d2d;color:#d4d4d4;padding:2px 6px;border-radius:3px;">💻 VS Code 代码编辑器</span> 小说藏在注释里<br>
                                     <span style="background:#0c0c0c;color:#33ff33;padding:2px 6px;border-radius:3px;">🖥️ Linux 终端日志</span> 小说伪装成 syslog<br>
-                                    <span style="background:#0078d4;color:#fff;padding:2px 6px;border-radius:3px;">📧 Outlook 邮箱</span> 小说伪装成会议纪要
+                                    <span style="background:#0078d4;color:#fff;padding:2px 6px;border-radius:3px;">📧 Outlook 邮箱</span> 小说伪装成会议纪要<br>
+                                    <span style="background:#535353;color:#d6d6d6;padding:2px 6px;border-radius:3px;">🎨 Photoshop</span>
+                                    <span style="background:#2c2c2c;color:#ff9a00;padding:2px 6px;border-radius:3px;">✏️ Illustrator</span><br>
+                                    <span style="background:#4a90d9;color:#fff;padding:2px 6px;border-radius:3px;">📐 墨刀原型设计</span>
+                                    <span style="background:#e8e8e8;color:#333;padding:2px 6px;border-radius:3px;">💎 Sketch UI设计</span>
                                 </div>
 
                                 <b style="color:#666;display:block;margin-top:12px;">⌨️ 快捷键速查</b>
@@ -416,7 +538,34 @@
                     <option value="vscode">💻 VS Code 代码编辑器</option>
                     <option value="terminal">🖥️ Linux 终端日志</option>
                     <option value="outlook">📧 Outlook 邮箱</option>
+                    <option value="photoshop">🎨 Photoshop 图像编辑</option>
+                    <option value="illustrator">✏️ Illustrator 矢量设计</option>
+                    <option value="modao">📐 墨刀 原型设计</option>
+                    <option value="sketch">💎 Sketch UI设计</option>
                 </select>
+            </div>
+            <div class="setting-section">🚨 老板键</div>
+            <div class="setting-row" style="flex-direction:column;align-items:flex-start;gap:6px;">
+                <label style="display:flex;align-items:center;gap:6px;cursor:pointer;">
+                    <input type="checkbox" id="boss-key-hotkey-enabled" onchange="updateBossKeySettings()">
+                    <span>模式一：快捷键隐藏窗口</span>
+                </label>
+                <div id="boss-key-hotkey-config" style="display:none;margin-left:22px;font-size:12px;">
+                    <span>快捷键: </span>
+                    <input type="text" id="boss-key-hotkey-display" readonly placeholder="点击录入快捷键" 
+                        style="width:140px;padding:3px 6px;border:1px solid var(--border-color);border-radius:4px;background:transparent;color:inherit;font-size:11px;cursor:pointer;text-align:center;"
+                        onclick="startRecordBossKey()" onfocus="startRecordBossKey()">
+                    <button onclick="clearBossKey()" style="font-size:10px;padding:2px 6px;margin-left:4px;">清除</button>
+                </div>
+            </div>
+            <div class="setting-row" style="flex-direction:column;align-items:flex-start;gap:6px;">
+                <label style="display:flex;align-items:center;gap:6px;cursor:pointer;">
+                    <input type="checkbox" id="boss-key-mouse-enabled" onchange="updateBossKeySettings()">
+                    <span>模式二：鼠标移出窗口时隐藏</span>
+                </label>
+                <div id="boss-key-mouse-tip" style="display:none;margin-left:22px;font-size:11px;color:#999;">
+                    鼠标离开浏览器窗口后自动隐藏，点击回到标签页即恢复
+                </div>
             </div>
         </div>
     </div>
@@ -611,6 +760,510 @@
             <div class="ol-list" id="ol-mail-list"></div>
             <div class="ol-reading" id="ol-reading-pane"></div>
         </div>
+    </div>
+
+    <!-- Photoshop -->
+    <div id="photoshop-mockup">
+        <div class="ps-menubar"><span>Ps</span><span>File</span><span>Edit</span><span>Image</span><span>Layer</span><span>Type</span><span>Select</span><span>Filter</span><span>3D</span><span>View</span><span>Window</span><span>Help</span></div>
+        <div class="ps-optionsbar">
+            <span>🔤 T</span>
+            <select><option>Noto Sans SC</option><option>Adobe Heiti</option></select>
+            <select><option>Regular</option><option>Bold</option></select>
+            <input value="14 pt" style="width:48px;" readonly>
+            <span style="margin-left:8px;">⬛ Anti-aliasing: Sharp</span>
+            <span style="margin-left:8px;">⬛ ≡ Left align</span>
+            <span style="margin-left:auto;color:#666;">Color: <span style="display:inline-block;width:14px;height:14px;background:rgba(255,255,255,0.6);border:1px solid #888;vertical-align:middle;"></span></span>
+        </div>
+        <div class="ps-body">
+            <div class="ps-toolbox">
+                <div class="ps-tool">▬</div><div class="ps-tool">⊡</div><div class="ps-tool">◎</div><div class="ps-tool">✂</div>
+                <div class="ps-tool">🩹</div><div class="ps-tool">🖌</div><div class="ps-tool">🔍</div><div class="ps-tool">✏️</div>
+                <div class="ps-tool active">🔤</div><div class="ps-tool">🩼</div><div class="ps-tool">🔲</div><div class="ps-tool">↕</div>
+                <div class="ps-tool">🫳</div><div class="ps-tool">🔍</div>
+                <div style="margin-top:auto;padding:4px;">
+                    <div style="width:22px;height:22px;background:#333;border:2px solid #999;position:relative;"><div style="width:22px;height:22px;background:#fff;border:2px solid #999;position:absolute;top:6px;left:6px;"></div></div>
+                </div>
+            </div>
+            <div class="ps-canvas-area">
+                <div class="ps-canvas" style="width:440px;min-height:520px;background:#1a1a4e;">
+                    <!-- 海报顶部装饰 -->
+                    <div style="background:linear-gradient(135deg,#ffd600,#ff9100);height:6px;"></div>
+                    <div style="padding:20px 24px 0;">
+                        <!-- Logo + 标题区 -->
+                        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+                            <div style="width:42px;height:42px;background:#ffd600;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;">⚡</div>
+                            <div>
+                                <div style="color:#ffd600;font-size:20px;font-weight:800;letter-spacing:2px;">AI视频创作平台</div>
+                                <div style="color:#ffd600;font-size:14px;font-weight:700;letter-spacing:1px;">LibTV</div>
+                            </div>
+                        </div>
+                        <div style="height:3px;background:#ffd600;border-radius:2px;width:120px;margin-bottom:16px;"></div>
+                        <!-- Part 1 -->
+                        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+                            <div style="width:32px;height:32px;background:rgba(255,214,0,0.15);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;">📺</div>
+                            <div>
+                                <div style="color:#ffd600;font-size:11px;font-weight:600;letter-spacing:1px;">PART ONE</div>
+                                <div style="color:#fff;font-size:15px;font-weight:700;">今日工具</div>
+                            </div>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.08);border-radius:6px;padding:8px 12px;margin-bottom:12px;">
+                            <div style="color:#90caf9;font-size:10px;margin-bottom:4px;">🔗 LibTV: https://www.libtv.example/</div>
+                            <div style="color:rgba(255,255,255,0.7);font-size:10px;line-height:1.5;">一个集 文案编排 + AI节点工作流 制作视频内容的平台<br>脚本 → 分镜 → 图片 → 视频 → 配音 → 成片</div>
+                        </div>
+                        <!-- Part 2 -->
+                        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+                            <div style="width:32px;height:32px;background:rgba(255,214,0,0.15);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;">🎯</div>
+                            <div>
+                                <div style="color:#ffd600;font-size:11px;font-weight:600;letter-spacing:1px;">PART TWO</div>
+                                <div style="color:#fff;font-size:15px;font-weight:700;">核心功能</div>
+                            </div>
+                        </div>
+                        <div style="display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap;">
+                            <span style="background:#4caf50;color:#fff;font-size:9px;padding:2px 8px;border-radius:10px;">✦ 分镜脚本</span>
+                            <span style="background:#2196f3;color:#fff;font-size:9px;padding:2px 8px;border-radius:10px;">✦ 场景图</span>
+                            <span style="background:#ff9800;color:#fff;font-size:9px;padding:2px 8px;border-radius:10px;">✦ 视频镜头</span>
+                            <span style="background:#e91e63;color:#fff;font-size:9px;padding:2px 8px;border-radius:10px;">✦ 配音与剪辑</span>
+                        </div>
+                        <!-- 小说文字区（伪装成海报正文文案） -->
+                        <div style="color:rgba(255,255,255,0.6);font-size:11px;line-height:1.6;text-align:justify;margin-bottom:12px;min-height:60px;" id="ps-novel-content"></div>
+                        <!-- Part 3 -->
+                        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+                            <div style="width:32px;height:32px;background:rgba(255,214,0,0.15);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;">🚀</div>
+                            <div>
+                                <div style="color:#ffd600;font-size:11px;font-weight:600;letter-spacing:1px;">PART THREE</div>
+                                <div style="color:#fff;font-size:15px;font-weight:700;">典型使用场景</div>
+                            </div>
+                        </div>
+                        <div style="display:flex;gap:8px;margin-bottom:14px;">
+                            <div style="flex:1;background:rgba(255,255,255,0.06);border-radius:6px;padding:8px;text-align:center;">
+                                <div style="font-size:18px;margin-bottom:2px;">📚</div>
+                                <div style="color:#fff;font-size:10px;font-weight:600;">知识分享</div>
+                                <div style="color:rgba(255,255,255,0.4);font-size:9px;">科普/教程视频</div>
+                            </div>
+                            <div style="flex:1;background:rgba(255,255,255,0.06);border-radius:6px;padding:8px;text-align:center;">
+                                <div style="font-size:18px;margin-bottom:2px;">🛍</div>
+                                <div style="color:#fff;font-size:10px;font-weight:600;">电商带货</div>
+                                <div style="color:rgba(255,255,255,0.4);font-size:9px;">产品展示视频</div>
+                            </div>
+                            <div style="flex:1;background:rgba(255,255,255,0.06);border-radius:6px;padding:8px;text-align:center;">
+                                <div style="font-size:18px;margin-bottom:2px;">📰</div>
+                                <div style="color:#fff;font-size:10px;font-weight:600;">新闻资讯</div>
+                                <div style="color:rgba(255,255,255,0.4);font-size:9px;">快讯播报视频</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background:linear-gradient(135deg,#ffd600,#ff9100);height:4px;"></div>
+                </div>
+            </div>
+            <div class="ps-right-panel">
+                <div class="ps-panel-header"><span>Layers</span><span style="font-size:10px;">⚙</span></div>
+                <div class="ps-panel-body">
+                    <div style="display:flex;gap:4px;margin-bottom:6px;font-size:10px;color:#999;">
+                        <span>Normal ▾</span><span style="margin-left:auto;">Opacity: 100%</span>
+                    </div>
+                    <div style="display:flex;gap:4px;margin-bottom:8px;font-size:10px;color:#999;">
+                        <span>Lock: 🔲 🔲 🔲 🔲</span><span style="margin-left:auto;">Fill: 100%</span>
+                    </div>
+                    <div class="ps-layer active"><span class="ps-layer-eye">👁</span><span class="ps-layer-thumb">T</span><span>正文文案</span></div>
+                    <div class="ps-layer"><span class="ps-layer-eye">👁</span><span class="ps-layer-thumb" style="background:#ffd600;"></span><span>标题-AI视频创作</span></div>
+                    <div class="ps-layer"><span class="ps-layer-eye">👁</span><span class="ps-layer-thumb" style="background:rgba(255,214,0,0.3);font-size:7px;">⚡</span><span>Logo Icon</span></div>
+                    <div class="ps-layer"><span class="ps-layer-eye">👁</span><span class="ps-layer-thumb" style="background:#4caf50;font-size:7px;color:#fff;">●</span><span>标签组-功能</span></div>
+                    <div class="ps-layer"><span class="ps-layer-eye">👁</span><span class="ps-layer-thumb" style="background:rgba(255,255,255,0.1);"></span><span>卡片-使用场景</span></div>
+                    <div class="ps-layer"><span class="ps-layer-eye">👁</span><span class="ps-layer-thumb" style="background:linear-gradient(180deg,#ffd600,#ff9100);"></span><span>渐变条-顶部</span></div>
+                    <div class="ps-layer"><span class="ps-layer-eye" style="color:#555;">—</span><span class="ps-layer-thumb" style="background:#1a1a4e;">🔒</span><span style="color:#888;">背景-深蓝</span></div>
+                </div>
+                <div class="ps-panel-header" style="margin-top:4px;"><span>Properties</span></div>
+                <div class="ps-panel-body" style="font-size:10px;color:#999;line-height:1.8;">
+                    <div>W: 520 px &nbsp; H: 420 px</div>
+                    <div>X: 240 &nbsp; Y: 160</div>
+                    <div style="margin-top:6px;">Transform: <span style="color:#ccc;">Free Transform</span></div>
+                    <div>Blending: <span style="color:#ccc;">Normal</span></div>
+                </div>
+                <div class="ps-panel-header" style="margin-top:4px;"><span>Character</span></div>
+                <div class="ps-panel-body" style="font-size:10px;color:#999;line-height:1.8;">
+                    <div>Font: Noto Sans SC &nbsp; Size: 14pt</div>
+                    <div>Leading: Auto &nbsp; Tracking: 0</div>
+                    <div>Color: <span style="display:inline-block;width:10px;height:10px;background:#333;border:1px solid #666;vertical-align:middle;"></span> #333333</div>
+                </div>
+            </div>
+        </div>
+        <div class="ps-statusbar"><span id="ps-status-left">Doc: 4.8M / 18.2M</span><span id="ps-status-right">1080 × 1920 px @ 72 ppi | 8-bit/RGB</span></div>
+    </div>
+
+    <!-- Illustrator -->
+    <div id="illustrator-mockup">
+        <div class="ai-menubar"><span>Ai</span><span>File</span><span>Edit</span><span>Object</span><span>Type</span><span>Select</span><span>Effect</span><span>View</span><span>Window</span><span>Help</span></div>
+        <div class="ai-optionsbar">
+            <span style="color:#ff9a00;">▸</span> Selection Tool
+            <span style="margin-left:16px;color:#888;">X: <span style="color:#ccc;">142.5</span> &nbsp; Y: <span style="color:#ccc;">308.2</span> &nbsp; W: <span style="color:#ccc;">480</span> &nbsp; H: <span style="color:#ccc;">640</span></span>
+        </div>
+        <div class="ai-body">
+            <div class="ai-toolbox">
+                <div class="ai-tool active">▸</div><div class="ai-tool">⊡</div><div class="ai-tool">✒</div><div class="ai-tool">🔤</div>
+                <div class="ai-tool">⬡</div><div class="ai-tool">🖌</div><div class="ai-tool">✂</div><div class="ai-tool">🔍</div>
+                <div class="ai-tool">🫳</div><div class="ai-tool">↕</div><div class="ai-tool">🎨</div><div class="ai-tool">📐</div>
+                <div style="margin-top:auto;padding:4px;">
+                    <div style="width:20px;height:20px;background:#333;border:2px solid #999;position:relative;"><div style="width:20px;height:20px;background:transparent;border:2px solid #fff;position:absolute;top:5px;left:5px;"></div></div>
+                </div>
+            </div>
+            <div class="ai-canvas-area">
+                <div class="ai-artboard" style="width:420px;min-height:560px;background:#1b1b4f;overflow-y:auto;">
+                    <div class="ai-artboard-label">画板 1</div>
+                    <!-- 顶部渐变图 -->
+                    <div style="height:80px;background:linear-gradient(180deg,#1565c0,#1b1b4f);position:relative;display:flex;align-items:flex-end;padding:0 20px 10px;">
+                        <div style="width:36px;height:36px;background:#ffd600;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-right:10px;">⚡</div>
+                        <div>
+                            <div style="color:#ffd600;font-size:18px;font-weight:800;">数据驱动增长</div>
+                            <div style="color:rgba(255,255,255,0.6);font-size:10px;">Growth Hacking Strategy 2025</div>
+                        </div>
+                    </div>
+                    <div style="height:3px;background:linear-gradient(90deg,#ffd600,transparent);margin:0 20px 14px;"></div>
+                    <div style="padding:0 20px;">
+                        <!-- Section 1 -->
+                        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                            <div style="background:rgba(255,214,0,0.15);color:#ffd600;font-size:9px;font-weight:700;padding:3px 8px;border-radius:4px;">STEP 01</div>
+                            <div style="color:#fff;font-size:14px;font-weight:700;">用户画像分析</div>
+                        </div>
+                        <div style="display:flex;gap:8px;margin-bottom:14px;">
+                            <div style="flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:8px;text-align:center;">
+                                <div style="color:#64b5f6;font-size:22px;font-weight:800;">87%</div>
+                                <div style="color:rgba(255,255,255,0.5);font-size:9px;">用户留存率</div>
+                            </div>
+                            <div style="flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:8px;text-align:center;">
+                                <div style="color:#ffd600;font-size:22px;font-weight:800;">3.2x</div>
+                                <div style="color:rgba(255,255,255,0.5);font-size:9px;">转化提升</div>
+                            </div>
+                            <div style="flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:8px;text-align:center;">
+                                <div style="color:#69f0ae;font-size:22px;font-weight:800;">42k</div>
+                                <div style="color:rgba(255,255,255,0.5);font-size:9px;">日活跃用户</div>
+                            </div>
+                        </div>
+                        <!-- Section 2 -->
+                        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                            <div style="background:rgba(255,214,0,0.15);color:#ffd600;font-size:9px;font-weight:700;padding:3px 8px;border-radius:4px;">STEP 02</div>
+                            <div style="color:#fff;font-size:14px;font-weight:700;">增长策略矩阵</div>
+                        </div>
+                        <div style="display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap;">
+                            <span style="background:#43a047;color:#fff;font-size:9px;padding:2px 8px;border-radius:10px;">● 内容营销</span>
+                            <span style="background:#1e88e5;color:#fff;font-size:9px;padding:2px 8px;border-radius:10px;">● 社群裂变</span>
+                            <span style="background:#e53935;color:#fff;font-size:9px;padding:2px 8px;border-radius:10px;">● 付费投放</span>
+                            <span style="background:#8e24aa;color:#fff;font-size:9px;padding:2px 8px;border-radius:10px;">● 产品驱动</span>
+                        </div>
+                        <!-- 小说文字区（伪装成策略正文） -->
+                        <div style="color:rgba(255,255,255,0.55);font-size:11px;line-height:1.6;text-align:justify;margin-bottom:12px;min-height:60px;" id="ai-novel-content"></div>
+                        <!-- Section 3 -->
+                        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                            <div style="background:rgba(255,214,0,0.15);color:#ffd600;font-size:9px;font-weight:700;padding:3px 8px;border-radius:4px;">STEP 03</div>
+                            <div style="color:#fff;font-size:14px;font-weight:700;">执行路线图</div>
+                        </div>
+                        <!-- Timeline -->
+                        <div style="border-left:2px solid rgba(255,214,0,0.3);padding-left:14px;margin-bottom:16px;">
+                            <div style="position:relative;margin-bottom:10px;">
+                                <div style="position:absolute;left:-20px;top:2px;width:10px;height:10px;background:#ffd600;border-radius:50%;"></div>
+                                <div style="color:#ffd600;font-size:10px;font-weight:600;">Q1 — 基础建设</div>
+                                <div style="color:rgba(255,255,255,0.45);font-size:9px;">搭建数据中台 · 用户标签体系</div>
+                            </div>
+                            <div style="position:relative;margin-bottom:10px;">
+                                <div style="position:absolute;left:-20px;top:2px;width:10px;height:10px;background:#64b5f6;border-radius:50%;"></div>
+                                <div style="color:#64b5f6;font-size:10px;font-weight:600;">Q2 — 规模化投放</div>
+                                <div style="color:rgba(255,255,255,0.45);font-size:9px;">AB测试 · 渠道ROI优化</div>
+                            </div>
+                            <div style="position:relative;">
+                                <div style="position:absolute;left:-20px;top:2px;width:10px;height:10px;background:#69f0ae;border-radius:50%;"></div>
+                                <div style="color:#69f0ae;font-size:10px;font-weight:600;">Q3 — 生态闭环</div>
+                                <div style="color:rgba(255,255,255,0.45);font-size:9px;">私域运营 · 会员体系 · 复购引擎</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height:4px;background:linear-gradient(90deg,#ffd600,#ff9100);"></div>
+                </div>
+            </div>
+            <div class="ai-right-panel">
+                <div class="ai-panel-section">
+                    <div class="ai-panel-header"><span>Transform</span><span style="font-size:9px;">▾</span></div>
+                    <div class="ai-panel-row"><span>X:</span><input value="142.5" readonly><span>Y:</span><input value="308.2" readonly></div>
+                    <div class="ai-panel-row"><span>W:</span><input value="480" readonly><span>H:</span><input value="640" readonly></div>
+                    <div class="ai-panel-row"><span>↻:</span><input value="0°" readonly></div>
+                </div>
+                <div class="ai-panel-section">
+                    <div class="ai-panel-header"><span>Appearance</span><span style="font-size:9px;">▾</span></div>
+                    <div class="ai-panel-row"><span>Fill:</span><span class="ai-color-swatch" style="background:#ffffff;"></span><span>#FFFFFF</span></div>
+                    <div class="ai-panel-row"><span>Stroke:</span><span class="ai-color-swatch" style="background:#333333;"></span><span>1 pt</span></div>
+                    <div class="ai-panel-row"><span>Opacity:</span><span>100%</span></div>
+                </div>
+                <div class="ai-panel-section">
+                    <div class="ai-panel-header"><span>Layers</span><span style="font-size:9px;">▾</span></div>
+                    <div style="padding:4px 10px;">
+                        <div style="font-size:10px;padding:3px 0;color:#ff9a00;">▾ 📁 Layer 1</div>
+                        <div style="font-size:10px;padding:2px 0 2px 16px;color:#ccc;">├ 📝 正文文案</div>
+                        <div style="font-size:10px;padding:2px 0 2px 16px;color:#ccc;">├ ⬡ 数据卡片组</div>
+                        <div style="font-size:10px;padding:2px 0 2px 16px;color:#ccc;">├ 🔤 标题-增长策略</div>
+                        <div style="font-size:10px;padding:2px 0 2px 16px;color:#ccc;">├ ⏱ 时间线-路线图</div>
+                        <div style="font-size:10px;padding:2px 0 2px 16px;color:#999;">└ ▬ 背景-深蓝</div>
+                    </div>
+                </div>
+                <div class="ai-panel-section">
+                    <div class="ai-panel-header"><span>Character</span><span style="font-size:9px;">▾</span></div>
+                    <div class="ai-panel-row"><span>Font:</span><span style="color:#ccc;">Noto Sans SC</span></div>
+                    <div class="ai-panel-row"><span>Size:</span><input value="12 pt" readonly></div>
+                    <div class="ai-panel-row"><span>Leading:</span><input value="18 pt" readonly></div>
+                    <div class="ai-panel-row"><span>Tracking:</span><input value="0" readonly></div>
+                </div>
+                <div class="ai-panel-section">
+                    <div class="ai-panel-header"><span>Swatches</span><span style="font-size:9px;">▾</span></div>
+                    <div style="padding:6px 10px;display:flex;flex-wrap:wrap;gap:3px;">
+                        <span class="ai-color-swatch" style="background:#fff;"></span>
+                        <span class="ai-color-swatch" style="background:#000;"></span>
+                        <span class="ai-color-swatch" style="background:#d32f2f;"></span>
+                        <span class="ai-color-swatch" style="background:#1976d2;"></span>
+                        <span class="ai-color-swatch" style="background:#388e3c;"></span>
+                        <span class="ai-color-swatch" style="background:#f57c00;"></span>
+                        <span class="ai-color-swatch" style="background:#7b1fa2;"></span>
+                        <span class="ai-color-swatch" style="background:#fdd835;"></span>
+                        <span class="ai-color-swatch" style="background:#00838f;"></span>
+                        <span class="ai-color-swatch" style="background:#e91e63;"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ai-statusbar"><span>Selection: Text Frame</span><span>GPU Preview | 100%</span></div>
+    </div>
+
+    <!-- 墨刀 -->
+    <div id="modao-mockup">
+        <div class="md-header">
+            <div class="md-header-logo">📐 墨刀</div>
+            <div class="md-header-tabs">
+                <div class="md-header-tab active">原型</div>
+                <div class="md-header-tab">流程图</div>
+                <div class="md-header-tab">思维导图</div>
+            </div>
+            <div class="md-header-right">
+                <span>👤 产品组</span>
+                <span style="background:#4a90d9;color:#fff;padding:3px 10px;border-radius:4px;font-size:11px;">分享</span>
+                <span>💬 12</span>
+            </div>
+        </div>
+        <div class="md-body">
+            <div class="md-sidebar">
+                <div class="md-sidebar-title">📱 页面列表</div>
+                <div class="md-page-item active"><div class="md-page-thumb" style="background:linear-gradient(135deg,#ff6b6b,#ffa500);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;">🏠</div>首页</div>
+                <div class="md-page-item"><div class="md-page-thumb" style="background:linear-gradient(135deg,#667eea,#764ba2);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;">🔑</div>登录</div>
+                <div class="md-page-item"><div class="md-page-thumb" style="background:linear-gradient(135deg,#43e97b,#38f9d7);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;">📝</div>注册</div>
+                <div class="md-page-item"><div class="md-page-thumb" style="background:linear-gradient(135deg,#fa709a,#fee140);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;">📋</div>商品列表</div>
+                <div class="md-page-item"><div class="md-page-thumb" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;">📦</div>商品详情</div>
+                <div class="md-page-item"><div class="md-page-thumb" style="background:linear-gradient(135deg,#ffecd2,#fcb69f);display:flex;align-items:center;justify-content:center;font-size:10px;">🛒</div>购物车</div>
+                <div class="md-page-item"><div class="md-page-thumb" style="background:linear-gradient(135deg,#89f7fe,#66a6ff);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;">📄</div>订单确认</div>
+                <div class="md-page-item"><div class="md-page-thumb" style="background:linear-gradient(135deg,#a8edea,#fed6e3);display:flex;align-items:center;justify-content:center;font-size:10px;">✅</div>支付结果</div>
+                <div class="md-page-item"><div class="md-page-thumb" style="background:linear-gradient(135deg,#d4fc79,#96e6a1);display:flex;align-items:center;justify-content:center;font-size:10px;">👤</div>个人中心</div>
+                <div class="md-page-item"><div class="md-page-thumb" style="background:linear-gradient(135deg,#c2c2c2,#e0e0e0);display:flex;align-items:center;justify-content:center;font-size:10px;">⚙️</div>设置</div>
+            </div>
+            <div class="md-canvas-area">
+                <div class="md-phone-frame">
+                    <div class="md-phone-notch"></div>
+                    <div style="padding:8px 16px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#999;">
+                        <span>9:41</span>
+                        <span>📶 🔋</span>
+                    </div>
+                    <div style="padding:0 16px;margin-bottom:10px;">
+                        <div style="background:#f5f5f5;border-radius:20px;padding:8px 14px;font-size:12px;color:#999;">🔍 搜索商品...</div>
+                    </div>
+                    <!-- Banner -->
+                    <div style="margin:0 16px 10px;height:120px;background:linear-gradient(135deg,#ff6b6b,#ffa500);border-radius:10px;display:flex;align-items:center;padding:0 16px;">
+                        <div>
+                            <div style="color:#fff;font-size:16px;font-weight:700;">限时秒杀</div>
+                            <div style="color:rgba(255,255,255,0.85);font-size:11px;margin-top:4px;">全场低至3折起，限时抢购</div>
+                            <div style="background:#fff;color:#ff6b6b;font-size:10px;font-weight:600;padding:3px 10px;border-radius:12px;display:inline-block;margin-top:8px;">立即抢购</div>
+                        </div>
+                    </div>
+                    <!-- 分类图标 -->
+                    <div style="display:flex;justify-content:space-around;padding:0 8px 12px;border-bottom:1px solid #f0f0f0;">
+                        <div style="text-align:center;font-size:10px;color:#666;"><div style="width:40px;height:40px;background:#fff3e0;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;margin:0 auto 4px;">👗</div>女装</div>
+                        <div style="text-align:center;font-size:10px;color:#666;"><div style="width:40px;height:40px;background:#e3f2fd;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;margin:0 auto 4px;">📱</div>数码</div>
+                        <div style="text-align:center;font-size:10px;color:#666;"><div style="width:40px;height:40px;background:#e8f5e9;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;margin:0 auto 4px;">🍎</div>生鲜</div>
+                        <div style="text-align:center;font-size:10px;color:#666;"><div style="width:40px;height:40px;background:#fce4ec;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;margin:0 auto 4px;">🏠</div>家居</div>
+                        <div style="text-align:center;font-size:10px;color:#666;"><div style="width:40px;height:40px;background:#f3e5f5;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;margin:0 auto 4px;">💄</div>美妆</div>
+                    </div>
+                    <!-- 推荐标题 -->
+                    <div style="padding:10px 16px 6px;font-size:14px;font-weight:600;color:#333;display:flex;justify-content:space-between;align-items:center;">
+                        <span>📌 为你推荐</span><span style="font-size:11px;color:#999;font-weight:normal;">更多 ›</span>
+                    </div>
+                    <!-- 商品卡片 -->
+                    <div style="display:flex;gap:8px;padding:0 16px;margin-bottom:10px;">
+                        <div style="flex:1;background:#f9f9f9;border-radius:8px;overflow:hidden;">
+                            <div style="height:80px;background:linear-gradient(135deg,#e0e7ff,#c7d2fe);display:flex;align-items:center;justify-content:center;font-size:24px;">👟</div>
+                            <div style="padding:6px 8px;">
+                                <div style="font-size:11px;color:#333;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">运动跑鞋透气款</div>
+                                <div style="font-size:12px;color:#ff4444;font-weight:700;margin-top:2px;">¥199 <span style="font-size:9px;color:#999;font-weight:normal;text-decoration:line-through;">¥399</span></div>
+                            </div>
+                        </div>
+                        <div style="flex:1;background:#f9f9f9;border-radius:8px;overflow:hidden;">
+                            <div style="height:80px;background:linear-gradient(135deg,#fce4ec,#f8bbd0);display:flex;align-items:center;justify-content:center;font-size:24px;">👜</div>
+                            <div style="padding:6px 8px;">
+                                <div style="font-size:11px;color:#333;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">真皮单肩包女</div>
+                                <div style="font-size:12px;color:#ff4444;font-weight:700;margin-top:2px;">¥328 <span style="font-size:9px;color:#999;font-weight:normal;text-decoration:line-through;">¥658</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 小说内容区（伪装成商品详情描述） -->
+                    <div style="padding:0 16px 6px;font-size:13px;font-weight:600;color:#333;">📝 商品描述</div>
+                    <div class="md-phone-content" id="md-novel-content" style="min-height:auto;padding:0 16px 10px;font-size:12px;line-height:1.6;color:#666;"></div>
+                    <!-- 底部Tab -->
+                    <div style="margin-top:auto;border-top:1px solid #eee;display:flex;justify-content:space-around;padding:8px 0 4px;">
+                        <div style="text-align:center;font-size:9px;color:#ff4444;"><div style="font-size:16px;">🏠</div>首页</div>
+                        <div style="text-align:center;font-size:9px;color:#999;"><div style="font-size:16px;">📂</div>分类</div>
+                        <div style="text-align:center;font-size:9px;color:#999;"><div style="font-size:16px;">🛒</div>购物车</div>
+                        <div style="text-align:center;font-size:9px;color:#999;"><div style="font-size:16px;">👤</div>我的</div>
+                    </div>
+                    <div class="md-phone-home"></div>
+                </div>
+            </div>
+            <div class="md-right-panel">
+                <div class="md-prop-title">组件属性</div>
+                <div class="md-prop-row"><span>类型</span><span style="color:#333;">Text</span></div>
+                <div class="md-prop-row"><span>X</span><input value="16" readonly></div>
+                <div class="md-prop-row"><span>Y</span><input value="120" readonly></div>
+                <div class="md-prop-row"><span>宽度</span><input value="343" readonly></div>
+                <div class="md-prop-row"><span>高度</span><input value="Auto" readonly></div>
+                <div class="md-prop-title">文本样式</div>
+                <div class="md-prop-row"><span>字号</span><input value="14" readonly></div>
+                <div class="md-prop-row"><span>行高</span><input value="24" readonly></div>
+                <div class="md-prop-row"><span>颜色</span><span style="display:inline-flex;align-items:center;gap:4px;"><span style="width:14px;height:14px;background:#333;border:1px solid #ddd;border-radius:2px;display:inline-block;"></span>#333</span></div>
+                <div class="md-prop-row"><span>字体</span><span style="color:#333;">PingFang SC</span></div>
+                <div class="md-prop-title">交互事件</div>
+                <div style="font-size:11px;color:#999;padding:4px 0;">点击 → 跳转：商品详情</div>
+                <div style="font-size:11px;color:#999;padding:4px 0;">长按 → 弹层：操作菜单</div>
+                <div class="md-prop-title">备注</div>
+                <div style="font-size:11px;color:#aaa;padding:4px 0;">首页信息流区域，需对接后端接口</div>
+            </div>
+        </div>
+        <div class="md-statusbar"><span>页面: 首页 | 组件: 28</span><span>100% | 自适应</span></div>
+    </div>
+
+    <!-- Sketch -->
+    <div id="sketch-mockup">
+        <div class="sk-titlebar">
+            <div class="sk-titlebar-dots"><span style="background:#ff5f57"></span><span style="background:#febc2e"></span><span style="background:#28c840"></span></div>
+            <div class="sk-titlebar-center" id="sk-title-text">App-Design.sketch — Edited</div>
+            <div style="font-size:11px;color:#999;">☁️ Saved</div>
+        </div>
+        <div class="sk-toolbar">
+            <div class="sk-toolbar-btn">📄 Insert</div>
+            <div class="sk-toolbar-btn active">▸ Select</div>
+            <div class="sk-toolbar-btn">🔤 Text</div>
+            <div class="sk-toolbar-btn">▭ Shape</div>
+            <div class="sk-toolbar-btn">✏️ Pencil</div>
+            <span style="flex:1;"></span>
+            <div class="sk-toolbar-btn">🔍 100%</div>
+            <div class="sk-toolbar-btn">▶ Preview</div>
+            <div class="sk-toolbar-btn">📤 Export</div>
+        </div>
+        <div class="sk-body">
+            <div class="sk-layers">
+                <div class="sk-layers-title">Layers</div>
+                <div class="sk-layer-item"><span class="sk-layer-icon">📱</span>Page 1</div>
+                <div style="padding-left:12px;">
+                    <div class="sk-layer-item"><span class="sk-layer-icon">▾</span>📁 Homepage</div>
+                    <div style="padding-left:16px;">
+                        <div class="sk-layer-item"><span class="sk-layer-icon">▾</span>📁 Header</div>
+                        <div class="sk-layer-item" style="padding-left:28px;"><span class="sk-layer-icon">🔤</span>Logo</div>
+                        <div class="sk-layer-item" style="padding-left:28px;"><span class="sk-layer-icon">▭</span>Nav Bar</div>
+                        <div class="sk-layer-item"><span class="sk-layer-icon">▾</span>📁 Content</div>
+                        <div class="sk-layer-item active" style="padding-left:28px;"><span class="sk-layer-icon">🔤</span>Body Text</div>
+                        <div class="sk-layer-item" style="padding-left:28px;"><span class="sk-layer-icon">🖼</span>Hero Image</div>
+                        <div class="sk-layer-item" style="padding-left:28px;"><span class="sk-layer-icon">▭</span>Card 1</div>
+                        <div class="sk-layer-item" style="padding-left:28px;"><span class="sk-layer-icon">▭</span>Card 2</div>
+                        <div class="sk-layer-item"><span class="sk-layer-icon">▾</span>📁 Footer</div>
+                        <div class="sk-layer-item" style="padding-left:28px;"><span class="sk-layer-icon">🔤</span>Copyright</div>
+                        <div class="sk-layer-item"><span class="sk-layer-icon">▭</span>Background</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sk-canvas-area">
+                <div class="sk-artboard" style="width:520px;min-height:540px;">
+                    <div class="sk-artboard-title">Homepage — 1440 × 900</div>
+                    <div style="padding:0;">
+                        <!-- Nav bar -->
+                        <div style="display:flex;align-items:center;padding:12px 20px;border-bottom:1px solid #eee;">
+                            <div style="font-size:16px;font-weight:700;color:#4a90d9;">◆ BrandLogo</div>
+                            <div style="margin-left:auto;display:flex;gap:16px;font-size:11px;color:#666;">
+                                <span>首页</span><span>产品</span><span>解决方案</span><span>关于我们</span>
+                                <span style="background:#4a90d9;color:#fff;padding:3px 10px;border-radius:12px;">登录</span>
+                            </div>
+                        </div>
+                        <!-- Hero Section -->
+                        <div style="background:linear-gradient(135deg,#667eea,#764ba2);padding:28px 24px;color:#fff;">
+                            <div style="font-size:20px;font-weight:700;margin-bottom:6px;">让设计更简单</div>
+                            <div style="font-size:11px;opacity:0.85;margin-bottom:14px;">一站式协作平台，连接产品、设计与开发</div>
+                            <div style="display:flex;gap:8px;">
+                                <span style="background:#fff;color:#764ba2;padding:5px 16px;border-radius:16px;font-size:11px;font-weight:600;">免费体验</span>
+                                <span style="border:1px solid rgba(255,255,255,0.6);padding:5px 16px;border-radius:16px;font-size:11px;">了解更多</span>
+                            </div>
+                        </div>
+                        <!-- Feature Cards -->
+                        <div style="display:flex;gap:10px;padding:16px 20px;">
+                            <div style="flex:1;background:#f8f9ff;border-radius:8px;padding:12px;text-align:center;">
+                                <div style="font-size:22px;margin-bottom:4px;">🎨</div>
+                                <div style="font-size:11px;font-weight:600;color:#333;">UI 设计</div>
+                                <div style="font-size:9px;color:#999;margin-top:2px;">像素级精准还原</div>
+                            </div>
+                            <div style="flex:1;background:#f0faf0;border-radius:8px;padding:12px;text-align:center;">
+                                <div style="font-size:22px;margin-bottom:4px;">🔗</div>
+                                <div style="font-size:11px;font-weight:600;color:#333;">协作</div>
+                                <div style="font-size:9px;color:#999;margin-top:2px;">实时多人编辑</div>
+                            </div>
+                            <div style="flex:1;background:#fff8f0;border-radius:8px;padding:12px;text-align:center;">
+                                <div style="font-size:22px;margin-bottom:4px;">📐</div>
+                                <div style="font-size:11px;font-weight:600;color:#333;">标注</div>
+                                <div style="font-size:9px;color:#999;margin-top:2px;">自动生成切图</div>
+                            </div>
+                        </div>
+                        <!-- Body Text = novel area (伪装成正文介绍区) -->
+                        <div style="padding:6px 20px 2px;font-size:12px;font-weight:600;color:#333;">产品介绍</div>
+                        <div class="sk-artboard-content" id="sk-novel-content" style="padding:4px 20px 10px;font-size:11px;line-height:1.6;color:#888;min-height:auto;"></div>
+                        <!-- Footer -->
+                        <div style="border-top:1px solid #eee;padding:10px 20px;display:flex;justify-content:space-between;font-size:9px;color:#bbb;">
+                            <span>© 2025 BrandLogo Inc.</span>
+                            <span>隐私政策 · 服务条款 · 联系我们</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sk-inspector">
+                <div class="sk-insp-section">
+                    <div class="sk-insp-title">Alignment</div>
+                    <div style="display:flex;gap:6px;font-size:10px;color:#999;justify-content:center;">⬒ ⬓ ⬔ ⬕ ⬖ ⬗</div>
+                </div>
+                <div class="sk-insp-section">
+                    <div class="sk-insp-title">Position</div>
+                    <div class="sk-insp-row"><span>X</span><input value="60" readonly><span>Y</span><input value="180" readonly></div>
+                    <div class="sk-insp-row"><span>W</span><input value="420" readonly><span>H</span><input value="480" readonly></div>
+                    <div class="sk-insp-row"><span>↻</span><input value="0°" readonly></div>
+                </div>
+                <div class="sk-insp-section">
+                    <div class="sk-insp-title">Text</div>
+                    <div class="sk-insp-row"><span>Font</span><span>SF Pro Text</span></div>
+                    <div class="sk-insp-row"><span>Weight</span><span>Regular</span></div>
+                    <div class="sk-insp-row"><span>Size</span><input value="14" readonly></div>
+                    <div class="sk-insp-row"><span>Line</span><input value="22" readonly></div>
+                    <div class="sk-insp-row"><span>Spacing</span><input value="0" readonly></div>
+                    <div class="sk-insp-row"><span>Align</span><span>Left</span></div>
+                </div>
+                <div class="sk-insp-section">
+                    <div class="sk-insp-title">Fills</div>
+                    <div class="sk-insp-row"><span class="sk-color-preview" style="background:#333333;"></span><span>#333333 100%</span></div>
+                </div>
+                <div class="sk-insp-section">
+                    <div class="sk-insp-title">Shadows</div>
+                    <div class="sk-insp-row" style="color:#bbb;">No shadows</div>
+                </div>
+                <div class="sk-insp-section">
+                    <div class="sk-insp-title">Export</div>
+                    <div style="padding:4px 0;font-size:10px;color:#4a90d9;cursor:pointer;">+ Make Exportable</div>
+                </div>
+            </div>
+        </div>
+        <div class="sk-statusbar"><span>Body Text — Text Layer</span><span>100% | 1 layer selected</span></div>
     </div>
 
     <script>
@@ -959,13 +1612,22 @@
             } else if (mode === 'vscode') {
                 let lines = [];
                 for (let i = 0; i < textToRead.length; i += 70) lines.push(textToRead.substring(i, i + 70));
-                for (let i = 0; i < lines.length; i += 10) camoTextChunks.push(lines.slice(i, i + 10));
+                for (let i = 0; i < lines.length; i += 5) camoTextChunks.push(lines.slice(i, i + 5));
             } else if (mode === 'terminal') {
                 let lines = [];
                 for (let i = 0; i < textToRead.length; i += 90) lines.push(textToRead.substring(i, i + 90));
-                for (let i = 0; i < lines.length; i += 10) camoTextChunks.push(lines.slice(i, i + 10));
+                for (let i = 0; i < lines.length; i += 5) camoTextChunks.push(lines.slice(i, i + 5));
             } else if (mode === 'outlook') {
                 let cs = 800;
+                for (let i = 0; i < textToRead.length; i += cs) camoTextChunks.push(textToRead.substring(i, i + cs));
+            } else if (mode === 'photoshop' || mode === 'illustrator') {
+                let cs = 250;
+                for (let i = 0; i < textToRead.length; i += cs) camoTextChunks.push(textToRead.substring(i, i + cs));
+            } else if (mode === 'sketch') {
+                let cs = 250;
+                for (let i = 0; i < textToRead.length; i += cs) camoTextChunks.push(textToRead.substring(i, i + cs));
+            } else if (mode === 'modao') {
+                let cs = 200;
                 for (let i = 0; i < textToRead.length; i += cs) camoTextChunks.push(textToRead.substring(i, i + cs));
             } else {
                 // Excel
@@ -987,6 +1649,10 @@
             else if (mode === 'vscode') updateCamoVSCode();
             else if (mode === 'terminal') updateCamoTerminal();
             else if (mode === 'outlook') updateCamoOutlook();
+            else if (mode === 'photoshop') updateCamoDesignTool('ps-novel-content');
+            else if (mode === 'illustrator') updateCamoDesignTool('ai-novel-content');
+            else if (mode === 'modao') updateCamoDesignTool('md-novel-content');
+            else if (mode === 'sketch') updateCamoDesignTool('sk-novel-content');
             else updateCamoExcel();
         }
 
@@ -1116,10 +1782,10 @@
             for (let c of fakeCodeBefore) {
                 html += `<div class="vsc-line"><span class="vsc-line-num">${lineNum++}</span><span class="vsc-line-code">${c}</span></div>`;
             }
-            // 小说注释（仅10行）
+            // 小说注释（仅5行，颜色更浅不易被发现）
             for (let i = 0; i < lines.length; i++) {
                 let escaped = lines[i].replace(/</g, '&lt;').replace(/>/g, '&gt;');
-                html += `<div class="vsc-line"><span class="vsc-line-num">${lineNum++}</span><span class="vsc-line-code"><span class="vsc-comment"> * ${escaped}</span></span></div>`;
+                html += `<div class="vsc-line"><span class="vsc-line-num">${lineNum++}</span><span class="vsc-line-code"><span class="vsc-comment" style="color:#3d6637;"> * ${escaped}</span></span></div>`;
             }
             // 后段假代码
             for (let c of fakeCodeAfter) {
@@ -1201,11 +1867,11 @@
                 html += `<div class="term-line"><span class="term-timestamp">${fakeTimestamp()}</span> <span class="${f.cls}">[${f.cls === 'term-warn' ? 'WARN' : f.cls === 'term-error' ? 'ERROR' : 'INFO'}]</span> <span class="term-white">[${f.svc}]</span> <span class="term-white">${f.msg}</span></div>`;
             }
 
-            // 中间嵌入小说（10行，伪装成 DEBUG 日志）
+            // 中间嵌入小说（5行，伪装成 DEBUG 日志，字色更浅不易被发现）
             for (let i = 0; i < lines.length; i++) {
                 let escaped = lines[i].replace(/</g, '&lt;').replace(/>/g, '&gt;');
                 let svc = fakeServices[i % fakeServices.length];
-                html += `<div class="term-line"><span class="term-timestamp">${fakeTimestamp()}</span> <span class="term-info">[DEBUG]</span> <span class="term-white">[${svc}]</span> <span class="term-white">${escaped}</span></div>`;
+                html += `<div class="term-line"><span class="term-timestamp">${fakeTimestamp()}</span> <span class="term-info">[DEBUG]</span> <span class="term-white">[${svc}]</span> <span style="color:#8a8a8a;">${escaped}</span></div>`;
             }
 
             // 后段假日志
@@ -1279,6 +1945,16 @@
                     <hr style="border:none;border-top:1px solid #edebe9;margin:12px 0;">
                     <p style="color:#888;font-size:12px;">此邮件由系统自动归档，如有疑问请联系相关负责人。</p>
                 </div>`;
+        }
+
+        // ===== 设计工具伪装（PS/AI/墨刀/Sketch 共用更新逻辑）=====
+        function updateCamoDesignTool(containerId) {
+            let chunk = camoTextChunks[camoCurrentChunkIndex] || "";
+            if (typeof chunk !== 'string') chunk = chunk.join('');
+            let escaped = chunk.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            let paragraphs = escaped.match(/.{1,120}/g) || [escaped];
+            let bodyHtml = paragraphs.map(p => `<p style="margin:0 0 8px 0;text-indent:2em;">${p}</p>`).join('');
+            document.getElementById(containerId).innerHTML = bodyHtml;
         }
 
         // ===== 首饰加工工单 伪装 =====
@@ -1439,6 +2115,10 @@
         document.getElementById('vscode-mockup').addEventListener('wheel', handleWheelScroll, { passive: false });
         document.getElementById('terminal-mockup').addEventListener('wheel', handleWheelScroll, { passive: false });
         document.getElementById('outlook-mockup').addEventListener('wheel', handleWheelScroll, { passive: false });
+        document.getElementById('photoshop-mockup').addEventListener('wheel', handleWheelScroll, { passive: false });
+        document.getElementById('illustrator-mockup').addEventListener('wheel', handleWheelScroll, { passive: false });
+        document.getElementById('modao-mockup').addEventListener('wheel', handleWheelScroll, { passive: false });
+        document.getElementById('sketch-mockup').addEventListener('wheel', handleWheelScroll, { passive: false });
 
         // =================== 设置 ===================
         function toggleTheme() {
@@ -1493,7 +2173,7 @@
         }
 
         // =================== 伪装入口 / 隐藏所有 ===================
-        const allMockups = ['excel-mockup', 'customs-mockup', 'jewelry-form-mockup', 'factory-form-mockup', 'vscode-mockup', 'terminal-mockup', 'outlook-mockup'];
+        const allMockups = ['excel-mockup', 'customs-mockup', 'jewelry-form-mockup', 'factory-form-mockup', 'vscode-mockup', 'terminal-mockup', 'outlook-mockup', 'photoshop-mockup', 'illustrator-mockup', 'modao-mockup', 'sketch-mockup'];
         function hideAllMockups() { allMockups.forEach(id => document.getElementById(id).style.display = 'none'); }
 
         const camoTitles = {
@@ -1508,10 +2188,41 @@
             vscode: 'README.md — project-alpha — Visual Studio Code',
             terminal: 'root@prod-server-01: ~',
             outlook: '邮件 - Outlook',
+            photoshop: '首页banner-v3.psd @ 100% (文案内容, RGB/8)',
+            illustrator: '主视觉-终稿.ai @ 100% (GPU Preview)',
+            modao: '墨刀 - 商城App v2.1 原型',
+            sketch: 'App-Design.sketch — Sketch',
         };
 
         // =================== 键盘主控 ===================
         function handleKeyDown(e) {
+            // 老板键录入模式
+            if (isRecordingBossKey) {
+                if (e.key === 'Escape') { isRecordingBossKey = false; document.getElementById('boss-key-hotkey-display').value = bossKeyCombo ? formatCombo(bossKeyCombo) : ''; document.getElementById('boss-key-hotkey-display').style.borderColor = ''; return; }
+                // 等待按下至少一个修饰键 + 一个普通键
+                if (e.key !== 'Control' && e.key !== 'Alt' && e.key !== 'Shift' && e.key !== 'Meta') {
+                    e.preventDefault(); e.stopPropagation();
+                    bossKeyCombo = { ctrl: e.ctrlKey, alt: e.altKey, shift: e.shiftKey, key: e.key };
+                    document.getElementById('boss-key-hotkey-display').value = formatCombo(bossKeyCombo);
+                    document.getElementById('boss-key-hotkey-display').style.borderColor = '';
+                    isRecordingBossKey = false;
+                    saveBossKeyConfig();
+                    return;
+                }
+                e.preventDefault();
+                return;
+            }
+
+            // 老板键触发（快捷键模式）
+            if (bossKeyHotkeyEnabled && bossKeyCombo && matchesBossKey(e)) {
+                e.preventDefault(); e.stopPropagation();
+                if (isBossHidden) { hideBossCover(); } else { showBossCover(); }
+                return;
+            }
+
+            // 老板键遮罩下，屏蔽除老板键外的所有操作
+            if (isBossHidden) { e.preventDefault(); return; }
+
             if (e.key === 'Escape') {
                 isCamouflaged = !isCamouflaged;
                 closeSettings();
@@ -1539,6 +2250,14 @@
                     } else if (mode === 'outlook') {
                         initOutlookList();
                         document.getElementById('outlook-mockup').style.display = 'flex';
+                    } else if (mode === 'photoshop') {
+                        document.getElementById('photoshop-mockup').style.display = 'flex';
+                    } else if (mode === 'illustrator') {
+                        document.getElementById('illustrator-mockup').style.display = 'flex';
+                    } else if (mode === 'modao') {
+                        document.getElementById('modao-mockup').style.display = 'flex';
+                    } else if (mode === 'sketch') {
+                        document.getElementById('sketch-mockup').style.display = 'flex';
                     } else {
                         initExcelData(mode);
                         document.getElementById('excel-mockup').style.display = 'flex';
@@ -1559,6 +2278,137 @@
             }
         }
         document.addEventListener('keydown', handleKeyDown);
+
+        // =================== 老板键系统 ===================
+        let bossKeyHotkeyEnabled = false;
+        let bossKeyMouseEnabled = false;
+        let bossKeyCombo = null; // { ctrl, alt, shift, key }
+        let isRecordingBossKey = false;
+        let isBossHidden = false;
+        let mouseLeaveTimer = null;
+        let savedTitle = '';
+
+        function updateBossKeySettings() {
+            bossKeyHotkeyEnabled = document.getElementById('boss-key-hotkey-enabled').checked;
+            bossKeyMouseEnabled = document.getElementById('boss-key-mouse-enabled').checked;
+            document.getElementById('boss-key-hotkey-config').style.display = bossKeyHotkeyEnabled ? 'block' : 'none';
+            document.getElementById('boss-key-mouse-tip').style.display = bossKeyMouseEnabled ? 'block' : 'none';
+            if (bossKeyMouseEnabled) { setupMouseLeave(); } else { teardownMouseLeave(); }
+            saveBossKeyConfig();
+        }
+
+        function startRecordBossKey() {
+            isRecordingBossKey = true;
+            document.getElementById('boss-key-hotkey-display').value = '按下快捷键组合...';
+            document.getElementById('boss-key-hotkey-display').style.borderColor = '#d9534f';
+        }
+
+        function formatCombo(combo) {
+            let parts = [];
+            if (combo.ctrl) parts.push('Ctrl');
+            if (combo.alt) parts.push('Alt');
+            if (combo.shift) parts.push('Shift');
+            if (combo.key && combo.key !== 'Control' && combo.key !== 'Alt' && combo.key !== 'Shift') {
+                parts.push(combo.key.length === 1 ? combo.key.toUpperCase() : combo.key);
+            }
+            return parts.join(' + ');
+        }
+
+        function clearBossKey() {
+            bossKeyCombo = null;
+            document.getElementById('boss-key-hotkey-display').value = '';
+            document.getElementById('boss-key-hotkey-display').style.borderColor = '';
+            isRecordingBossKey = false;
+            saveBossKeyConfig();
+        }
+
+        function matchesBossKey(e) {
+            if (!bossKeyCombo) return false;
+            return e.ctrlKey === bossKeyCombo.ctrl &&
+                   e.altKey === bossKeyCombo.alt &&
+                   e.shiftKey === bossKeyCombo.shift &&
+                   e.key.toLowerCase() === bossKeyCombo.key.toLowerCase();
+        }
+
+        function showBossCover() {
+            if (isBossHidden) return;
+            isBossHidden = true;
+            savedTitle = document.title;
+            document.body.classList.add('boss-hidden');
+            document.title = '新标签页';
+            // 尝试让浏览器失去焦点，配合缩小效果
+            try { window.blur(); } catch(e) {}
+            // 改 favicon 为空白
+            let fav = document.querySelector('link[rel="icon"]');
+            if (!fav) { fav = document.createElement('link'); fav.rel = 'icon'; document.head.appendChild(fav); }
+            fav.href = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"/>';
+        }
+
+        function hideBossCover() {
+            if (!isBossHidden) return;
+            isBossHidden = false;
+            document.body.classList.remove('boss-hidden');
+            document.title = savedTitle || '文本阅读器';
+            // 恢复 favicon
+            let fav = document.querySelector('link[rel="icon"]');
+            if (fav) fav.href = '';
+        }
+
+        // 点击空白页恢复
+        document.getElementById('boss-blank').addEventListener('click', function() {
+            if (isBossHidden) hideBossCover();
+        });
+
+        // 鼠标离开模式
+        function onMouseLeaveWindow() {
+            if (!bossKeyMouseEnabled || isBossHidden) return;
+            mouseLeaveTimer = setTimeout(() => { showBossCover(); }, 300);
+        }
+        function onMouseEnterWindow() {
+            if (mouseLeaveTimer) { clearTimeout(mouseLeaveTimer); mouseLeaveTimer = null; }
+        }
+        function setupMouseLeave() {
+            document.addEventListener('mouseleave', onMouseLeaveWindow);
+            document.addEventListener('mouseenter', onMouseEnterWindow);
+        }
+        function teardownMouseLeave() {
+            document.removeEventListener('mouseleave', onMouseLeaveWindow);
+            document.removeEventListener('mouseenter', onMouseEnterWindow);
+            if (mouseLeaveTimer) { clearTimeout(mouseLeaveTimer); mouseLeaveTimer = null; }
+        }
+
+        // localStorage 持久化
+        function saveBossKeyConfig() {
+            try {
+                localStorage.setItem('bossKeyConfig', JSON.stringify({
+                    hotkeyEnabled: bossKeyHotkeyEnabled,
+                    mouseEnabled: bossKeyMouseEnabled,
+                    combo: bossKeyCombo
+                }));
+            } catch(e) {}
+        }
+        function loadBossKeyConfig() {
+            try {
+                let cfg = JSON.parse(localStorage.getItem('bossKeyConfig'));
+                if (!cfg) return;
+                if (cfg.hotkeyEnabled) {
+                    bossKeyHotkeyEnabled = true;
+                    document.getElementById('boss-key-hotkey-enabled').checked = true;
+                    document.getElementById('boss-key-hotkey-config').style.display = 'block';
+                }
+                if (cfg.mouseEnabled) {
+                    bossKeyMouseEnabled = true;
+                    document.getElementById('boss-key-mouse-enabled').checked = true;
+                    document.getElementById('boss-key-mouse-tip').style.display = 'block';
+                    setupMouseLeave();
+                }
+                if (cfg.combo) {
+                    bossKeyCombo = cfg.combo;
+                    document.getElementById('boss-key-hotkey-display').value = formatCombo(bossKeyCombo);
+                }
+            } catch(e) {}
+        }
+        loadBossKeyConfig();
 
         // 闪烁动画（终端光标）
         let styleTag = document.createElement('style');
