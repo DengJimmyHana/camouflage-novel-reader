@@ -1,4 +1,4 @@
-# Simplified-Novel-Reader-with-Camouflage-
+# camouflage-novel-reader-
 一款自带不同行业伪装的精简版小说查看器，助力上班摸鱼，反对996压榨行为。
 *基于Gemini和Claude两款AI完成的工具。
 
