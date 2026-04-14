@@ -408,6 +408,67 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
         @media (max-width: 700px) { .sk-layers { width:140px; } .sk-inspector { width:160px; } }
         @media (max-width: 500px) { .sk-layers { display:none; } .sk-inspector { display:none; } }
 
+        /* ===== 伪装: WPS 文字 ===== */
+        #wps-word-mockup { display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:#f0f0f0; z-index:9999; flex-direction:column; font-family:'Microsoft YaHei','Segoe UI',sans-serif; color:#333; font-size:13px; }
+        .ww-topbar { height:32px; background:#fff; display:flex; align-items:center; padding:0 10px; border-bottom:1px solid #e8e8e8; }
+        .ww-topbar-logo { color:#d9534f; font-size:14px; font-weight:700; margin-right:10px; display:flex; align-items:center; gap:4px; }
+        .ww-topbar-logo span { background:#d9534f; color:#fff; font-size:9px; font-weight:800; padding:2px 3px; border-radius:2px; }
+        .ww-topbar-tabs { display:flex; align-items:center; gap:0; height:100%; }
+        .ww-topbar-tab { padding:0 12px; height:100%; display:flex; align-items:center; font-size:11px; color:#888; cursor:pointer; border-bottom:2px solid transparent; }
+        .ww-topbar-tab:hover { background:#f5f5f5; }
+        .ww-topbar-filetab { padding:4px 10px; font-size:11px; color:#333; margin-right:4px; }
+        .ww-topbar-right { margin-left:auto; display:flex; align-items:center; gap:8px; font-size:11px; color:#888; }
+        .ww-menubar { height:30px; background:#fff; display:flex; align-items:center; padding:0 6px; gap:0; border-bottom:1px solid #e8e8e8; }
+        .ww-menu-item { padding:4px 10px; font-size:12px; color:#333; cursor:pointer; }
+        .ww-menu-item:hover { background:#e8e8e8; border-radius:3px; }
+        .ww-menu-item.active { color:#d9534f; font-weight:600; }
+        .ww-ribbon { min-height:80px; background:#fff; border-bottom:1px solid #ddd; display:flex; align-items:flex-start; padding:6px 10px; gap:6px; overflow:hidden; flex-wrap:wrap; }
+        .ww-rg { display:flex; flex-direction:column; align-items:center; gap:1px; padding:0 6px; }
+        .ww-rg-label { font-size:9px; color:#888; margin-top:2px; }
+        .ww-rg-row { display:flex; gap:1px; align-items:center; }
+        .ww-rb { min-width:22px; height:22px; display:flex; align-items:center; justify-content:center; font-size:12px; color:#555; cursor:pointer; border-radius:3px; padding:0 3px; }
+        .ww-rb:hover { background:#e8e8e8; }
+        .ww-rb.lg { height:44px; flex-direction:column; padding:0 6px; font-size:9px; gap:2px; }
+        .ww-rb.lg .ww-rb-icon { font-size:18px; }
+        .ww-sep { width:1px; background:#e0e0e0; height:56px; margin:0 4px; flex-shrink:0; }
+        .ww-sel { font-size:11px; border:1px solid #ddd; padding:1px 4px; border-radius:3px; background:#fff; color:#333; outline:none; }
+        .ww-style-box { border:1px solid #ddd; border-radius:3px; padding:2px 10px; font-size:11px; cursor:pointer; text-align:center; min-width:50px; }
+        .ww-style-box.active { border-color:#4f8fda; color:#4f8fda; }
+        .ww-body { flex:1; background:#e8e8e8; display:flex; justify-content:center; overflow-y:auto; padding:20px; }
+        .ww-paper { width:680px; min-height:900px; background:#fff; box-shadow:0 2px 12px rgba(0,0,0,0.12); padding:72px 80px; }
+        .ww-sidebar-r { width:36px; background:#f5f5f5; border-left:1px solid #e0e0e0; display:flex; flex-direction:column; align-items:center; padding:8px 0; gap:12px; font-size:14px; color:#999; flex-shrink:0; }
+        .ww-sidebar-r span:hover { color:#4f8fda; }
+        .ww-statusbar { height:24px; background:#f0f0f0; border-top:1px solid #d6d6d6; display:flex; align-items:center; padding:0 12px; font-size:10px; color:#888; justify-content:space-between; }
+        @media (max-width: 800px) { .ww-paper { width:100%; min-height:auto; padding:30px 24px; } .ww-ribbon { display:none; } .ww-sidebar-r { display:none; } }
+
+        /* ===== 伪装: WPS 表格 ===== */
+        #wps-excel-mockup { display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:#f0f0f0; z-index:9999; flex-direction:column; font-family:'Microsoft YaHei','Segoe UI',sans-serif; color:#333; font-size:12px; }
+        .we-topbar { height:32px; background:#fff; display:flex; align-items:center; padding:0 10px; border-bottom:1px solid #e8e8e8; }
+        .we-topbar-logo { color:#2e7d32; font-size:14px; font-weight:700; margin-right:10px; display:flex; align-items:center; gap:4px; }
+        .we-topbar-logo span { background:#2e7d32; color:#fff; font-size:9px; font-weight:800; padding:2px 3px; border-radius:2px; }
+        .we-topbar-right { margin-left:auto; display:flex; align-items:center; gap:8px; font-size:11px; color:#888; }
+        .we-menubar { height:30px; background:#fff; display:flex; align-items:center; padding:0 6px; gap:0; border-bottom:1px solid #e8e8e8; }
+        .we-menu-item { padding:4px 10px; font-size:12px; color:#333; cursor:pointer; }
+        .we-menu-item:hover { background:#e8e8e8; border-radius:3px; }
+        .we-menu-item.active { color:#2e7d32; font-weight:600; }
+        .we-ribbon { min-height:70px; background:#fff; border-bottom:1px solid #ddd; display:flex; align-items:flex-start; padding:6px 10px; gap:4px; overflow:hidden; flex-wrap:wrap; }
+        .we-formula-bar { height:26px; background:#fff; border-bottom:1px solid #d6d6d6; display:flex; align-items:center; padding:0 8px; font-size:11px; }
+        .we-formula-bar input { flex:1; border:none; outline:none; font-family:Calibri,'Microsoft YaHei',sans-serif; font-size:11px; margin-left:8px; }
+        .we-grid-area { flex:1; overflow:auto; background:#fff; }
+        .we-grid { border-collapse:collapse; width:100%; font-family:Calibri,'Microsoft YaHei',sans-serif; font-size:11px; table-layout:fixed; }
+        .we-grid th { background:#f5f5f5; border:1px solid #d4d4d4; padding:3px 6px; font-weight:normal; color:#555; text-align:center; position:sticky; top:0; z-index:1; }
+        .we-grid td { border:1px solid #d4d4d4; padding:3px 6px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+        .we-grid .we-row-header { background:#f5f5f5; text-align:center; color:#555; font-weight:normal; width:36px; }
+        .we-grid .we-bold { font-weight:bold; }
+        .we-grid .we-right { text-align:right; }
+        .we-grid .we-header-row td { background:#e8f5e9; font-weight:bold; text-align:center; }
+        .we-grid .we-section td { background:#f1f8e9; font-weight:bold; }
+        .we-grid .we-total td { background:#e8f5e9; font-weight:bold; border-top:2px solid #2e7d32; }
+        .we-sheet-tabs { height:28px; background:#f0f0f0; border-top:1px solid #d6d6d6; display:flex; align-items:center; padding:0 8px; gap:2px; }
+        .we-sheet-tab { padding:4px 14px; font-size:11px; background:#fff; border:1px solid #d6d6d6; border-bottom:none; border-radius:4px 4px 0 0; cursor:pointer; }
+        .we-sheet-tab.active { background:#fff; border-bottom:1px solid #fff; font-weight:600; color:#2e7d32; }
+        .we-statusbar { height:22px; background:#2e7d32; display:flex; align-items:center; padding:0 12px; font-size:10px; color:#fff; justify-content:space-between; }
+
         /* ===== 老板键：隐藏状态 ===== */
         body.boss-hidden { background:#f0f0f0 !important; overflow:hidden !important; }
         body.boss-hidden > *:not(#boss-blank) { opacity:0 !important; pointer-events:none !important; position:fixed !important; transform:scale(0) !important; }
@@ -472,25 +533,39 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
 
                             <div style="flex:1;min-width:260px;">
                                 <b style="color:#d9534f;">🎭 伪装系统 <span style="font-size:11px;font-weight:normal;">[ Esc 一键切换 ]</span></b>
-                                <div style="font-size:12px;margin-top:6px;line-height:1.8;color:#555;">
-                                    伪装下翻页：假数据静止，只有小说文字悄悄变化
+                                <div style="font-size:11px;margin-top:4px;color:#888;">翻页时假数据不动，只有小说文字悄悄变化 · 共 17 套</div>
+
+                                <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;">
+                                    <div style="font-size:10px;font-weight:600;color:#999;width:100%;margin-bottom:-2px;">📄 表单类</div>
+                                    <span style="background:#fdf6e3;padding:2px 8px;border-radius:4px;border:1px solid #e8d9a0;font-size:10px;">🌟 海关报关单</span>
+                                    <span style="background:#fdf6e3;padding:2px 8px;border-radius:4px;border:1px solid #e8d9a0;font-size:10px;">💍 首饰工单</span>
+                                    <span style="background:#eaf2f8;padding:2px 8px;border-radius:4px;border:1px solid #b8d4e8;font-size:10px;">🔧 机械派工单</span>
                                 </div>
-                                <div style="font-size:11px;margin-top:8px;line-height:2;color:#444;">
-                                    <span style="background:#fdf6e3;padding:2px 6px;border-radius:3px;border:1px solid #e8d9a0;">🌟 海关出口报关单</span> 1:1 复刻真实报关单<br>
-                                    <span style="background:#fdf6e3;padding:2px 6px;border-radius:3px;border:1px solid #e8d9a0;">💍 首饰加工工单</span> 珠宝行业专业表单<br>
-                                    <span style="background:#eaf2f8;padding:2px 6px;border-radius:3px;border:1px solid #b8d4e8;">🔧 机械加工派工单</span> ISO 体系工序卡<br>
-                                    <span style="background:#e8f5e9;padding:2px 6px;border-radius:3px;border:1px solid #a5d6a7;">📊 Excel: 车间排产</span>
-                                    <span style="background:#e8f5e9;padding:2px 6px;border-radius:3px;border:1px solid #a5d6a7;">📊 财务审计</span><br>
-                                    <span style="background:#e8f5e9;padding:2px 6px;border-radius:3px;border:1px solid #a5d6a7;">📊 仓储物流</span>
-                                    <span style="background:#e8f5e9;padding:2px 6px;border-radius:3px;border:1px solid #a5d6a7;">📊 首饰订单</span>
-                                    <span style="background:#e8f5e9;padding:2px 6px;border-radius:3px;border:1px solid #a5d6a7;">📊 机械订单</span><br>
-                                    <span style="background:#2d2d2d;color:#d4d4d4;padding:2px 6px;border-radius:3px;">💻 VS Code 代码编辑器</span> 小说藏在注释里<br>
-                                    <span style="background:#0c0c0c;color:#33ff33;padding:2px 6px;border-radius:3px;">🖥️ Linux 终端日志</span> 小说伪装成 syslog<br>
-                                    <span style="background:#0078d4;color:#fff;padding:2px 6px;border-radius:3px;">📧 Outlook 邮箱</span> 小说伪装成会议纪要<br>
-                                    <span style="background:#535353;color:#d6d6d6;padding:2px 6px;border-radius:3px;">🎨 Photoshop</span>
-                                    <span style="background:#2c2c2c;color:#ff9a00;padding:2px 6px;border-radius:3px;">✏️ Illustrator</span><br>
-                                    <span style="background:#4a90d9;color:#fff;padding:2px 6px;border-radius:3px;">📐 墨刀原型设计</span>
-                                    <span style="background:#e8e8e8;color:#333;padding:2px 6px;border-radius:3px;">💎 Sketch UI设计</span>
+                                <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;">
+                                    <div style="font-size:10px;font-weight:600;color:#999;width:100%;margin-bottom:-2px;">📊 表格类</div>
+                                    <span style="background:#e8f5e9;padding:2px 8px;border-radius:4px;border:1px solid #a5d6a7;font-size:10px;">车间排产</span>
+                                    <span style="background:#e8f5e9;padding:2px 8px;border-radius:4px;border:1px solid #a5d6a7;font-size:10px;">财务审计</span>
+                                    <span style="background:#e8f5e9;padding:2px 8px;border-radius:4px;border:1px solid #a5d6a7;font-size:10px;">仓储物流</span>
+                                    <span style="background:#e8f5e9;padding:2px 8px;border-radius:4px;border:1px solid #a5d6a7;font-size:10px;">首饰订单</span>
+                                    <span style="background:#e8f5e9;padding:2px 8px;border-radius:4px;border:1px solid #a5d6a7;font-size:10px;">机械订单</span>
+                                </div>
+                                <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;">
+                                    <div style="font-size:10px;font-weight:600;color:#999;width:100%;margin-bottom:-2px;">💻 开发 & 办公</div>
+                                    <span style="background:#2d2d2d;color:#d4d4d4;padding:2px 8px;border-radius:4px;font-size:10px;">VS Code</span>
+                                    <span style="background:#0c0c0c;color:#33ff33;padding:2px 8px;border-radius:4px;font-size:10px;">Linux 终端</span>
+                                    <span style="background:#0078d4;color:#fff;padding:2px 8px;border-radius:4px;font-size:10px;">📧 Outlook</span>
+                                </div>
+                                <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;">
+                                    <div style="font-size:10px;font-weight:600;color:#999;width:100%;margin-bottom:-2px;">🎨 设计 & 产品</div>
+                                    <span style="background:#535353;color:#d6d6d6;padding:2px 8px;border-radius:4px;font-size:10px;">Photoshop</span>
+                                    <span style="background:#2c2c2c;color:#ff9a00;padding:2px 8px;border-radius:4px;font-size:10px;">Illustrator</span>
+                                    <span style="background:#4a90d9;color:#fff;padding:2px 8px;border-radius:4px;font-size:10px;">📐 墨刀</span>
+                                    <span style="background:#e8e8e8;color:#333;padding:2px 8px;border-radius:4px;font-size:10px;">💎 Sketch</span>
+                                </div>
+                                <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;">
+                                    <div style="font-size:10px;font-weight:600;color:#999;width:100%;margin-bottom:-2px;">💼 WPS 办公</div>
+                                    <span style="background:#fff;padding:2px 8px;border-radius:4px;border:1px solid #ddd;font-size:10px;">📝 WPS 文字 · 财务报告</span>
+                                    <span style="background:#e8f5e9;padding:2px 8px;border-radius:4px;border:1px solid #a5d6a7;font-size:10px;">📊 WPS 表格 · 利润表</span>
                                 </div>
 
                                 <b style="color:#666;display:block;margin-top:12px;">⌨️ 快捷键速查</b>
@@ -571,6 +646,8 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
                     <option value="illustrator">✏️ Illustrator 矢量设计</option>
                     <option value="modao">📐 墨刀 原型设计</option>
                     <option value="sketch">💎 Sketch UI设计</option>
+                    <option value="wps-word">📝 WPS 文字: 财务分析报告</option>
+                    <option value="wps-excel">📊 WPS 表格: 利润表</option>
                 </select>
             </div>
             <div class="setting-section">🚨 老板键</div>
@@ -1295,6 +1372,232 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
         <div class="sk-statusbar"><span>Body Text — Text Layer</span><span>100% | 1 layer selected</span></div>
     </div>
 
+    <!-- WPS 文字 -->
+    <div id="wps-word-mockup">
+        <div class="ww-topbar">
+            <div class="ww-topbar-logo"><span>W</span> WPS Office</div>
+            <div class="ww-topbar-tabs">
+                <div class="ww-topbar-tab" style="background:#f0f0f0;border-bottom:none;">稻壳AI模板</div>
+                <div class="ww-topbar-tab" style="background:#fff;font-weight:600;color:#333;border-bottom:2px solid #4f8fda;">📝 文字文稿1</div>
+            </div>
+            <div class="ww-topbar-right">
+                <span>🔍 段落</span>
+                <span style="margin-left:8px;">未上云</span>
+                <span style="background:#4f8fda;color:#fff;padding:2px 10px;border-radius:3px;">分享</span>
+            </div>
+        </div>
+        <div class="ww-menubar">
+            <div class="ww-menu-item">≡ 文件</div>
+            <div class="ww-menu-item" style="font-size:11px;color:#888;">自动保存 ○</div>
+            <div class="ww-menu-item">📋</div><div class="ww-menu-item">✂</div><div class="ww-menu-item">↩</div><div class="ww-menu-item">↪</div>
+            <span style="flex:1;"></span>
+            <div class="ww-menu-item active" style="font-weight:600;">开始</div>
+            <div class="ww-menu-item">插入</div><div class="ww-menu-item">页面</div><div class="ww-menu-item">引用</div><div class="ww-menu-item">审阅</div><div class="ww-menu-item">视图</div>
+            <div class="ww-menu-item">工具</div><div class="ww-menu-item">会员专享</div>
+            <div class="ww-menu-item" style="color:#7b61ff;">✦ WPS AI</div>
+        </div>
+        <div class="ww-ribbon">
+            <div class="ww-rg">
+                <div class="ww-rg-row"><div class="ww-rb lg"><span class="ww-rb-icon">📋</span>格式刷</div><div class="ww-rb lg"><span class="ww-rb-icon">📎</span>粘贴</div></div>
+            </div>
+            <div class="ww-sep"></div>
+            <div class="ww-rg">
+                <div class="ww-rg-row"><select class="ww-sel" style="width:100px;"><option>宋体 (正文)</option></select><select class="ww-sel" style="width:40px;"><option>五号</option></select></div>
+                <div class="ww-rg-row"><div class="ww-rb"><b>B</b></div><div class="ww-rb"><i>I</i></div><div class="ww-rb"><u>U</u></div><div class="ww-rb">~</div><div class="ww-rb">A²</div><div class="ww-rb" style="color:#d9534f;">A</div><div class="ww-rb">🔤</div><div class="ww-rb" style="color:#f0ad4e;">🖌</div><div class="ww-rb" style="color:#d9534f;">A̲</div><div class="ww-rb">◆</div></div>
+            </div>
+            <div class="ww-sep"></div>
+            <div class="ww-rg">
+                <div class="ww-rg-row"><div class="ww-rb">⊞:</div><div class="ww-rb">⊞-</div><div class="ww-rb">⊞≡</div><div class="ww-rb">⊞.</div><div class="ww-rb">☰↓</div><div class="ww-rb">↕</div><div class="ww-rb">┆</div><div class="ww-rb">⊞⊞</div></div>
+                <div class="ww-rg-row"><div class="ww-rb">≡</div><div class="ww-rb">≡</div><div class="ww-rb">≡</div><div class="ww-rb">≡</div><div class="ww-rb">⊟</div><div class="ww-rb">↕</div></div>
+            </div>
+            <div class="ww-sep"></div>
+            <div class="ww-rg">
+                <div class="ww-rg-row" style="gap:4px;">
+                    <div class="ww-style-box active">正文</div>
+                    <div class="ww-style-box" style="font-size:14px;font-weight:700;">标题 1</div>
+                    <div class="ww-style-box" style="font-size:13px;font-weight:600;">标题 2</div>
+                    <div class="ww-style-box" style="font-size:12px;font-weight:600;">标题 3</div>
+                    <div class="ww-style-box">标题 4</div>
+                    <div class="ww-style-box" style="color:#999;">默认段落字体</div>
+                </div>
+            </div>
+            <div class="ww-sep"></div>
+            <div class="ww-rg">
+                <div class="ww-rg-row"><div class="ww-rb lg"><span class="ww-rb-icon">🔍</span><span>查找替换</span></div><div class="ww-rb lg"><span class="ww-rb-icon">🅰</span><span>翻译</span></div></div>
+            </div>
+            <div class="ww-sep"></div>
+            <div class="ww-rg">
+                <div class="ww-rg-row"><div class="ww-rb lg"><span class="ww-rb-icon">📑</span><span>AI 排版</span></div><div class="ww-rb lg"><span class="ww-rb-icon">🔄</span><span>排列</span></div></div>
+            </div>
+        </div>
+        <div style="display:flex;flex:1;overflow:hidden;">
+            <div class="ww-body">
+            <div class="ww-paper">
+                <div style="font-size:15px;font-weight:700;color:#333;margin-bottom:10px;border-left:4px solid #4f8fda;padding-left:10px;">一、总体经营概况</div>
+                <div style="font-size:12px;line-height:2;color:#444;text-indent:2em;margin-bottom:10px;">
+                    2025年第一季度，公司实现营业收入 <b>18,472.36万元</b>，同比增长 <b>12.8%</b>；实现净利润 <b>2,156.89万元</b>，同比增长 <b>8.3%</b>。毛利率为 <b>34.2%</b>，较上年同期提升 1.5 个百分点。经营活动现金流净额为 <b>3,218.45万元</b>，同比增长 <b>15.6%</b>，资金状况整体良好。期末资产总额 <b>52,314.78万元</b>，负债合计 <b>21,846.32万元</b>，资产负债率 <b>41.8%</b>，处于合理区间。
+                </div>
+                <div style="display:flex;gap:12px;margin-bottom:16px;">
+                    <div style="flex:1;background:#f8f9ff;border:1px solid #e0e5f0;border-radius:6px;padding:10px;text-align:center;">
+                        <div style="font-size:10px;color:#888;">营业收入</div>
+                        <div style="font-size:18px;font-weight:700;color:#4f8fda;">18,472.36<span style="font-size:10px;font-weight:400;"> 万元</span></div>
+                        <div style="font-size:10px;color:#4caf50;">↑ 12.8%</div>
+                    </div>
+                    <div style="flex:1;background:#f8f9ff;border:1px solid #e0e5f0;border-radius:6px;padding:10px;text-align:center;">
+                        <div style="font-size:10px;color:#888;">净利润</div>
+                        <div style="font-size:18px;font-weight:700;color:#4f8fda;">2,156.89<span style="font-size:10px;font-weight:400;"> 万元</span></div>
+                        <div style="font-size:10px;color:#4caf50;">↑ 8.3%</div>
+                    </div>
+                    <div style="flex:1;background:#f8f9ff;border:1px solid #e0e5f0;border-radius:6px;padding:10px;text-align:center;">
+                        <div style="font-size:10px;color:#888;">毛利率</div>
+                        <div style="font-size:18px;font-weight:700;color:#4f8fda;">34.2%</div>
+                        <div style="font-size:10px;color:#4caf50;">↑ 1.5pp</div>
+                    </div>
+                    <div style="flex:1;background:#f8f9ff;border:1px solid #e0e5f0;border-radius:6px;padding:10px;text-align:center;">
+                        <div style="font-size:10px;color:#888;">资产负债率</div>
+                        <div style="font-size:18px;font-weight:700;color:#4f8fda;">41.8%</div>
+                        <div style="font-size:10px;color:#4caf50;">↓ 2.1pp</div>
+                    </div>
+                </div>
+                <div style="font-size:15px;font-weight:700;color:#333;margin-bottom:10px;border-left:4px solid #4f8fda;padding-left:10px;">二、收入结构分析</div>
+                <div style="font-size:12px;line-height:2;color:#444;text-indent:2em;margin-bottom:10px;">
+                    从业务板块看，主营业务收入 <b>16,835.12万元</b>，占比 91.1%；其他业务收入 <b>1,637.24万元</b>，占比 8.9%。主营业务中，产品销售收入 <b>12,624.08万元</b>，同比增长 14.2%；服务收入 <b>4,211.04万元</b>，同比增长 8.7%。从区域分布看，华东地区贡献收入 <b>8,312.56万元</b>（占比 45.0%），华南地区 <b>4,987.51万元</b>（占比 27.0%），华北地区 <b>3,325.33万元</b>（占比 18.0%），其他地区合计 <b>1,846.96万元</b>（占比 10.0%）。
+                </div>
+                <!-- 小说内容区（伪装成分析正文） -->
+                <div style="font-size:15px;font-weight:700;color:#333;margin-bottom:10px;border-left:4px solid #4f8fda;padding-left:10px;">三、费用控制与利润分析</div>
+                <div style="font-size:12px;line-height:2;color:#444;text-indent:2em;margin-bottom:10px;">
+                    本季度期间费用合计 <b>3,755.73万元</b>，费用率为 <b>20.3%</b>，同比下降 0.8 个百分点。其中销售费用 1,478.59万元，同比增长 6.18%，主要系市场推广投入增加所致；管理费用 1,293.07万元，同比增长 5.24%，增幅低于收入增速，管理效率有所提升；财务费用 245.18万元，同比下降 8.29%，得益于贷款利率下调及银行授信条件优化。
+                </div>
+                <div id="ww-novel-content" style="font-size:12px;line-height:2;color:#444;text-indent:2em;margin-bottom:10px;min-height:60px;"></div>
+                <div style="font-size:15px;font-weight:700;color:#333;margin-bottom:10px;border-left:4px solid #4f8fda;padding-left:10px;">四、资产质量与偿债能力</div>
+                <div style="font-size:12px;line-height:2;color:#444;text-indent:2em;margin-bottom:10px;">
+                    截至报告期末，应收账款余额 <b>6,842.13万元</b>，较年初增长 8.2%，账龄结构整体健康，1年以内占比 <b>89.3%</b>。存货余额 <b>4,215.67万元</b>，存货周转天数 <b>31.2天</b>，同比缩短 2.8天，库存管理效率持续优化。流动比率 <b>2.14</b>，速动比率 <b>1.67</b>，短期偿债能力充足。长期借款余额 <b>8,500.00万元</b>，利息保障倍数 <b>10.2倍</b>，偿债风险可控。
+                </div>
+                <div style="font-size:15px;font-weight:700;color:#333;margin-bottom:10px;border-left:4px solid #4f8fda;padding-left:10px;">五、后续工作建议</div>
+                <div style="font-size:12px;line-height:2;color:#444;text-indent:2em;">
+                    建议下一季度重点关注以下方面：（1）持续优化产品结构，提高高毛利产品占比，目标毛利率提升至 35% 以上；（2）加强应收账款管理，将 1年以上账龄占比控制在 8% 以内，缩短平均回款周期至 45 天；（3）推进 ERP 系统二期上线，实现财务业务一体化，预计可降低人工核算成本 15%；（4）关注原材料价格波动，建议对铜、铝等大宗原料进行 Q2 远期锁价，降低采购成本波动风险；（5）配合集团战略，启动华中地区销售网络布局，预计投入 <b>320万元</b>，目标新增客户 50 家。
+                </div>
+            </div>
+            </div>
+            <div class="ww-sidebar-r">
+                <span>📑</span><span>🔍</span><span>💬</span><span>📎</span><span style="margin-top:auto;">❓</span>
+            </div>
+        </div>
+        <div class="ww-statusbar"><span>页面: 1/3 &nbsp; 字数: 2,847</span><span>100% &nbsp; 📖 页面视图</span></div>
+    </div>
+
+    <!-- WPS 表格 -->
+    <div id="wps-excel-mockup">
+        <div class="we-topbar">
+            <div class="we-topbar-logo"><span>W</span> WPS Office</div>
+            <div class="ww-topbar-tabs">
+                <div class="ww-topbar-tab" style="background:#f0f0f0;">稻壳AI模板</div>
+                <div class="ww-topbar-tab" style="background:#fff;font-weight:600;color:#333;border-bottom:2px solid #2e7d32;">📊 2025Q1利润表-合并报表（终...</div>
+            </div>
+            <div class="we-topbar-right">
+                <span>🔍 分列</span>
+                <span>未上云</span>
+                <span style="background:#2e7d32;color:#fff;padding:2px 10px;border-radius:3px;">分享</span>
+            </div>
+        </div>
+        <div class="we-menubar">
+            <div class="we-menu-item">≡ 文件</div>
+            <div class="we-menu-item" style="font-size:11px;color:#888;">自动保存 ○</div>
+            <div class="we-menu-item">📋</div><div class="we-menu-item">✂</div><div class="we-menu-item">↩</div><div class="we-menu-item">↪</div>
+            <span style="flex:1;"></span>
+            <div class="we-menu-item active" style="font-weight:600;">开始</div>
+            <div class="we-menu-item">插入</div><div class="we-menu-item">页面</div><div class="we-menu-item">公式</div><div class="we-menu-item">数据</div><div class="we-menu-item">审阅</div><div class="we-menu-item">视图</div>
+            <div class="we-menu-item">工具</div><div class="we-menu-item">会员专享</div>
+            <div class="we-menu-item" style="color:#7b61ff;">✦ WPS AI</div>
+        </div>
+        <div class="we-ribbon">
+            <div class="ww-rg">
+                <div class="ww-rg-row"><div class="ww-rb lg"><span class="ww-rb-icon">📋</span>格式刷</div><div class="ww-rb lg"><span class="ww-rb-icon">📎</span>粘贴</div></div>
+            </div>
+            <div class="ww-sep" style="height:48px;"></div>
+            <div class="ww-rg">
+                <div class="ww-rg-row"><select class="ww-sel" style="width:80px;"><option>宋体</option></select><select class="ww-sel" style="width:36px;"><option>11</option></select><div class="ww-rb">A↑</div><div class="ww-rb">A↓</div></div>
+                <div class="ww-rg-row"><div class="ww-rb"><b>B</b></div><div class="ww-rb"><i>I</i></div><div class="ww-rb"><u>U</u></div><div class="ww-rb">⊞</div><div class="ww-rb" style="color:#d9534f;">A̲</div><div class="ww-rb" style="color:#f0ad4e;">🖌</div><div class="ww-rb">◆</div></div>
+            </div>
+            <div class="ww-sep" style="height:48px;"></div>
+            <div class="ww-rg">
+                <div class="ww-rg-row"><div class="ww-rb">≡</div><div class="ww-rb">≡</div><div class="ww-rb">≡</div><div class="ww-rb">↔</div><div class="ww-rb">↕</div><div class="ww-rb">⊟</div></div>
+                <div class="ww-rg-row"><select class="ww-sel" style="width:52px;"><option>常规</option></select><div class="ww-rb">🔄 转换</div><div class="ww-rb">⊞ 合并</div></div>
+            </div>
+            <div class="ww-sep" style="height:48px;"></div>
+            <div class="ww-rg">
+                <div class="ww-rg-row"><div class="ww-rb">¥</div><div class="ww-rb">%</div><div class="ww-rb"><sup>00</sup>↑</div><div class="ww-rb"><sub>00</sub>↓</div></div>
+                <div class="ww-rg-row"><div class="ww-rb">↕ 行和列</div><div class="ww-rb">📊 表格样式</div></div>
+            </div>
+            <div class="ww-sep" style="height:48px;"></div>
+            <div class="ww-rg">
+                <div class="ww-rg-row"><div class="ww-rb lg"><span class="ww-rb-icon">📊</span><span>条件格式</span></div><div class="ww-rb lg"><span class="ww-rb-icon">📋</span><span>工作表</span></div><div class="ww-rb lg"><span class="ww-rb-icon">⊡</span><span>单元格样式</span></div></div>
+            </div>
+            <div class="ww-sep" style="height:48px;"></div>
+            <div class="ww-rg">
+                <div class="ww-rg-row"><div class="ww-rb lg"><span class="ww-rb-icon">Σ</span><span>填充</span></div><div class="ww-rb lg"><span class="ww-rb-icon">⬇</span><span>求和</span></div><div class="ww-rb lg"><span class="ww-rb-icon">🔽</span><span>排序</span></div><div class="ww-rb lg"><span class="ww-rb-icon">▽</span><span>筛选</span></div><div class="ww-rb lg"><span class="ww-rb-icon">❄</span><span>冻结</span></div><div class="ww-rb lg"><span class="ww-rb-icon">🔍</span><span>查找</span></div></div>
+            </div>
+        </div>
+        <div class="we-formula-bar">
+            <span style="border:1px solid #ddd;padding:1px 6px;font-size:10px;background:#f8f8f8;">D5</span>
+            <span style="margin-left:6px;color:#999;font-style:italic;">fx</span>
+            <input value="=SUM(D6:D8)" readonly>
+        </div>
+        <div class="we-grid-area">
+            <table class="we-grid">
+                <thead>
+                    <tr><th style="width:36px;"></th><th style="width:200px;">A</th><th style="width:120px;">B</th><th style="width:120px;">C</th><th style="width:120px;">D</th><th style="width:120px;">E</th><th style="min-width:200px;">F</th></tr>
+                </thead>
+                <tbody id="we-tbody">
+                    <tr class="we-header-row"><td class="we-row-header">1</td><td colspan="5" style="font-size:14px;letter-spacing:2px;">利润表（损益表）</td><td></td></tr>
+                    <tr><td class="we-row-header">2</td><td style="color:#888;font-size:10px;">编制单位：XX集团有限公司</td><td colspan="2" style="color:#888;font-size:10px;">报告期：2025年1-3月</td><td colspan="2" style="color:#888;font-size:10px;">单位：人民币（万元）</td><td></td></tr>
+                    <tr style="background:#f5f5f5;font-weight:bold;"><td class="we-row-header">3</td><td>项目</td><td class="we-right">本期金额</td><td class="we-right">上期金额</td><td class="we-right">同比增减</td><td class="we-right">增减比例</td><td style="color:#888;">备注/摘要</td></tr>
+                    <tr class="we-section"><td class="we-row-header">4</td><td>一、营业收入</td><td class="we-right">18,472.36</td><td class="we-right">16,376.21</td><td class="we-right">2,096.15</td><td class="we-right">12.80%</td><td></td></tr>
+                    <tr><td class="we-row-header">5</td><td style="padding-left:18px;">减：营业成本</td><td class="we-right">12,154.81</td><td class="we-right">11,023.45</td><td class="we-right">1,131.36</td><td class="we-right">10.26%</td><td></td></tr>
+                    <tr><td class="we-row-header">6</td><td style="padding-left:26px;">其中：直接材料</td><td class="we-right">7,892.63</td><td class="we-right">7,214.18</td><td class="we-right">678.45</td><td class="we-right">9.40%</td><td></td></tr>
+                    <tr><td class="we-row-header">7</td><td style="padding-left:26px;">　　　直接人工</td><td class="we-right">2,431.96</td><td class="we-right">2,154.78</td><td class="we-right">277.18</td><td class="we-right">12.86%</td><td></td></tr>
+                    <tr><td class="we-row-header">8</td><td style="padding-left:26px;">　　　制造费用</td><td class="we-right">1,830.22</td><td class="we-right">1,654.49</td><td class="we-right">175.73</td><td class="we-right">10.62%</td><td></td></tr>
+                    <tr><td class="we-row-header">9</td><td style="padding-left:18px;">毛利</td><td class="we-right we-bold">6,317.55</td><td class="we-right">5,352.76</td><td class="we-right">964.79</td><td class="we-right" style="color:#2e7d32;">18.02%</td><td></td></tr>
+                    <tr><td class="we-row-header">10</td><td style="padding-left:26px;">税金及附加</td><td class="we-right">184.72</td><td class="we-right">163.76</td><td class="we-right">20.96</td><td class="we-right">12.80%</td><td></td></tr>
+                    <tr><td class="we-row-header">11</td><td style="padding-left:26px;">销售费用</td><td class="we-right">1,478.59</td><td class="we-right">1,392.48</td><td class="we-right">86.11</td><td class="we-right">6.18%</td><td></td></tr>
+                    <tr><td class="we-row-header">12</td><td style="padding-left:34px;">其中：广告宣传费</td><td class="we-right">582.34</td><td class="we-right">536.12</td><td class="we-right">46.22</td><td class="we-right">8.62%</td><td></td></tr>
+                    <tr><td class="we-row-header">13</td><td style="padding-left:34px;">　　　运输费</td><td class="we-right">412.85</td><td class="we-right">398.26</td><td class="we-right">14.59</td><td class="we-right">3.66%</td><td></td></tr>
+                    <tr><td class="we-row-header">14</td><td style="padding-left:34px;">　　　销售人员薪酬</td><td class="we-right">483.40</td><td class="we-right">458.10</td><td class="we-right">25.30</td><td class="we-right">5.52%</td><td></td></tr>
+                    <tr><td class="we-row-header">15</td><td style="padding-left:26px;">管理费用</td><td class="we-right">1,293.07</td><td class="we-right">1,228.72</td><td class="we-right">64.35</td><td class="we-right">5.24%</td><td></td></tr>
+                    <tr><td class="we-row-header">16</td><td style="padding-left:34px;">其中：职工薪酬</td><td class="we-right">724.56</td><td class="we-right">689.43</td><td class="we-right">35.13</td><td class="we-right">5.09%</td><td></td></tr>
+                    <tr><td class="we-row-header">17</td><td style="padding-left:34px;">　　　折旧摊销</td><td class="we-right">286.41</td><td class="we-right">272.18</td><td class="we-right">14.23</td><td class="we-right">5.23%</td><td></td></tr>
+                    <tr><td class="we-row-header">18</td><td style="padding-left:34px;">　　　办公及差旅</td><td class="we-right">148.32</td><td class="we-right">142.67</td><td class="we-right">5.65</td><td class="we-right">3.96%</td><td></td></tr>
+                    <tr><td class="we-row-header">19</td><td style="padding-left:26px;">研发费用</td><td class="we-right">738.89</td><td class="we-right">655.05</td><td class="we-right">83.85</td><td class="we-right">12.80%</td><td></td></tr>
+                    <tr><td class="we-row-header">20</td><td style="padding-left:26px;">财务费用</td><td class="we-right">245.18</td><td class="we-right">267.34</td><td class="we-right">-22.16</td><td class="we-right" style="color:#d32f2f;">-8.29%</td><td></td></tr>
+                    <tr><td class="we-row-header">21</td><td style="padding-left:34px;">其中：利息支出</td><td class="we-right">198.42</td><td class="we-right">223.56</td><td class="we-right">-25.14</td><td class="we-right" style="color:#d32f2f;">-11.25%</td><td></td></tr>
+                    <tr><td class="we-row-header">22</td><td style="padding-left:34px;">　　　利息收入</td><td class="we-right">-18.63</td><td class="we-right">-15.28</td><td class="we-right">-3.35</td><td class="we-right">21.92%</td><td></td></tr>
+                    <tr><td class="we-row-header">23</td><td style="padding-left:34px;">　　　汇兑损益</td><td class="we-right">65.39</td><td class="we-right">59.06</td><td class="we-right">6.33</td><td class="we-right">10.72%</td><td></td></tr>
+                    <tr class="we-section"><td class="we-row-header">24</td><td>二、营业利润</td><td class="we-right we-bold">2,377.10</td><td class="we-right">1,645.41</td><td class="we-right">731.69</td><td class="we-right" style="color:#2e7d32;">44.47%</td><td></td></tr>
+                    <tr><td class="we-row-header">25</td><td style="padding-left:18px;">加：营业外收入</td><td class="we-right">86.52</td><td class="we-right">72.10</td><td class="we-right">14.42</td><td class="we-right">20.00%</td><td></td></tr>
+                    <tr><td class="we-row-header">26</td><td style="padding-left:18px;">减：营业外支出</td><td class="we-right">12.34</td><td class="we-right">8.56</td><td class="we-right">3.78</td><td class="we-right">44.16%</td><td></td></tr>
+                    <tr class="we-section"><td class="we-row-header">27</td><td>三、利润总额</td><td class="we-right we-bold">2,451.28</td><td class="we-right">1,708.95</td><td class="we-right">742.33</td><td class="we-right" style="color:#2e7d32;">43.44%</td><td></td></tr>
+                    <tr><td class="we-row-header">28</td><td style="padding-left:18px;">减：所得税费用</td><td class="we-right">294.39</td><td class="we-right">216.82</td><td class="we-right">77.57</td><td class="we-right">35.78%</td><td></td></tr>
+                    <tr class="we-total"><td class="we-row-header">29</td><td>四、净利润</td><td class="we-right we-bold" style="color:#2e7d32;">2,156.89</td><td class="we-right">1,492.13</td><td class="we-right">664.76</td><td class="we-right" style="color:#2e7d32;">44.55%</td><td></td></tr>
+                    <tr><td class="we-row-header">30</td><td style="padding-left:18px;">其中：归属于母公司</td><td class="we-right">1,982.34</td><td class="we-right">1,368.75</td><td class="we-right">613.59</td><td class="we-right" style="color:#2e7d32;">44.83%</td><td></td></tr>
+                    <tr><td class="we-row-header">31</td><td style="padding-left:18px;">　　　少数股东损益</td><td class="we-right">174.55</td><td class="we-right">123.38</td><td class="we-right">51.17</td><td class="we-right">41.48%</td><td></td></tr>
+                    <tr><td class="we-row-header">32</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td class="we-row-header">33</td><td style="color:#888;">五、每股收益</td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td class="we-row-header">34</td><td style="padding-left:18px;">基本每股收益(元)</td><td class="we-right">0.396</td><td class="we-right">0.274</td><td class="we-right">0.122</td><td class="we-right" style="color:#2e7d32;">44.53%</td><td></td></tr>
+                    <tr><td class="we-row-header">35</td><td style="padding-left:18px;">稀释每股收益(元)</td><td class="we-right">0.394</td><td class="we-right">0.273</td><td class="we-right">0.121</td><td class="we-right" style="color:#2e7d32;">44.32%</td><td></td></tr>
+                    <tr><td class="we-row-header">36</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="we-sheet-tabs">
+            <span style="font-size:11px;color:#888;margin-right:8px;">◀ ▶</span>
+            <div class="we-sheet-tab active">利润表</div>
+            <div class="we-sheet-tab">资产负债表</div>
+            <div class="we-sheet-tab">现金流量表</div>
+            <div class="we-sheet-tab">附注</div>
+        </div>
+        <div class="we-statusbar"><span>就绪 &nbsp;|&nbsp; 平均值: 2,156.89 &nbsp; 计数: 13 &nbsp; 求和: 18,472.36</span><span>100% &nbsp; 📊 普通视图</span></div>
+    </div>
+
     <script>
         // =================== 全局状态 ===================
         let currentMode = 'light';
@@ -1613,11 +1916,25 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
             let html = `<h3>${txtChapters[index].title}</h3><p>${txtChapters[index].content}</p>`;
             html += `<div class="chapter-nav-buttons"><button onclick="goPrev()" ${index === 0 ? 'disabled' : ''}>上一章</button><button onclick="goNext()" ${index === txtChapters.length - 1 ? 'disabled' : ''}>下一章</button></div>`;
             txtContainer.innerHTML = html;
-            statWords.innerText = `字数: ${txtChapters[index].rawLen} / ${totalTxtLength}`;
-            statPages.innerText = `章: ${index + 1} / ${txtChapters.length}`;
             currentProgressText = `[Ch:${index + 1}/${txtChapters.length} W:${txtChapters[index].rawLen}]`;
+            updateTxtStatusBar();
             setTimeout(() => { txtContainer.scrollTop = scrollPos; restoreFocus(); if (isCamouflaged) { buildCamoChunks(true); updateCamoContent(); } }, 50);
-            txtContainer.onscroll = () => localStorage.setItem('novel_progress_' + currentFileName, JSON.stringify({ index, scroll: txtContainer.scrollTop }));
+            txtContainer.onscroll = () => {
+                if (!isCamouflaged) updateTxtStatusBar();
+                localStorage.setItem('novel_progress_' + currentFileName, JSON.stringify({ index, scroll: txtContainer.scrollTop }));
+            };
+        }
+
+        function updateTxtStatusBar() {
+            let maxScroll = txtContainer.scrollHeight - txtContainer.clientHeight;
+            let scrollPct = (maxScroll > 0) ? Math.round(txtContainer.scrollTop / maxScroll * 100) : 0;
+            // 全书进度：已读完的章节字数 + 当前章节按比例
+            let readChars = 0;
+            for (let i = 0; i < currentChapterIndex; i++) readChars += txtChapters[i].rawLen;
+            readChars += Math.round(txtChapters[currentChapterIndex].rawLen * scrollPct / 100);
+            let globalPct = (totalTxtLength > 0) ? Math.round(readChars / totalTxtLength * 100) : 0;
+            statWords.innerText = `全书: ${globalPct}% | 本章: ${scrollPct}%`;
+            statPages.innerText = `章: ${currentChapterIndex + 1}/${txtChapters.length} | ${txtChapters[currentChapterIndex].rawLen}字`;
         }
 
         // =================== EPUB 解析 ===================
@@ -1677,6 +1994,7 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
 
         // =================== 伪装切片引擎 ===================
         let camoTextChunks = [], camoCurrentChunkIndex = 0, isNavigatingPrev = false;
+        let camoMaxScroll = 0; // 进入伪装时 txtContainer 的最大滚动像素
 
         function getNovelText() {
             let t = "";
@@ -1716,6 +2034,12 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
             } else if (mode === 'modao') {
                 let cs = 200;
                 for (let i = 0; i < textToRead.length; i += cs) camoTextChunks.push(textToRead.substring(i, i + cs));
+            } else if (mode === 'wps-word') {
+                let cs = 350;
+                for (let i = 0; i < textToRead.length; i += cs) camoTextChunks.push(textToRead.substring(i, i + cs));
+            } else if (mode === 'wps-excel') {
+                let sentences = textToRead.match(/[^。！？]+[。！？]?/g) || [textToRead];
+                for (let i = 0; i < sentences.length; i += 10) camoTextChunks.push(sentences.slice(i, i + 10));
             } else {
                 // Excel
                 let sentences = textToRead.match(/[^。！？]+[。！？]?/g) || [textToRead];
@@ -1740,7 +2064,13 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
             else if (mode === 'illustrator') updateCamoDesignTool('ai-novel-content');
             else if (mode === 'modao') updateCamoDesignTool('md-novel-content');
             else if (mode === 'sketch') updateCamoDesignTool('sk-novel-content');
+            else if (mode === 'wps-word') updateCamoDesignTool('ww-novel-content');
+            else if (mode === 'wps-excel') updateCamoWpsExcel();
             else updateCamoExcel();
+            // 更新伪装进度到主界面状态栏（退出伪装后会被正常进度覆盖）
+            let pct = camoTextChunks.length > 1 ? Math.round(camoCurrentChunkIndex / (camoTextChunks.length - 1) * 100) : 0;
+            statWords.innerText = `伪装阅读: ${camoCurrentChunkIndex + 1} / ${camoTextChunks.length}`;
+            statPages.innerText = `本章进度: ${pct}% | 章: ${currentChapterIndex + 1}${txtChapters.length > 0 ? '/' + txtChapters.length : ''}`;
         }
 
         function updateCamoCustoms() {
@@ -2044,6 +2374,26 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
             document.getElementById(containerId).innerHTML = bodyHtml;
         }
 
+        // ===== WPS 表格伪装 =====
+        function updateCamoWpsExcel() {
+            let rows = camoTextChunks[camoCurrentChunkIndex] || [];
+            if (typeof rows === 'string') rows = [rows];
+            let tbody = document.getElementById('we-tbody');
+            let trs = tbody.getElementsByTagName('tr');
+            // 只在前 10 行数据行（跳过表头前3行）的 F 列填小说，无需滚动
+            let filled = 0;
+            for (let i = 0; i < trs.length && filled < 10; i++) {
+                let cells = trs[i].getElementsByTagName('td');
+                if (cells.length >= 6 && i >= 3) { // 跳过标题、编制单位、表头行
+                    let fCell = cells[cells.length - 1];
+                    let txt = rows[filled] ? rows[filled].trim() : '';
+                    fCell.innerText = txt ? txt : '';
+                    fCell.title = txt;
+                    filled++;
+                }
+            }
+        }
+
         // ===== 首饰加工工单 伪装 =====
         function initJewelryForm() {
             let rn = () => Math.floor(Math.random() * 90000 + 10000);
@@ -2169,12 +2519,19 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
         }
 
         // =================== 伪装翻页 ===================
+        function syncCamoScrollToTxt() {
+            if (currentFileType !== 'txt' || camoTextChunks.length <= 1 || camoMaxScroll <= 0) return;
+            let targetScroll = Math.floor(camoMaxScroll * camoCurrentChunkIndex / (camoTextChunks.length - 1));
+            txtContainer.onscroll = null;
+            txtContainer.scrollTop = targetScroll;
+            txtContainer.onscroll = () => localStorage.setItem('novel_progress_' + currentFileName, JSON.stringify({ index: currentChapterIndex, scroll: txtContainer.scrollTop }));
+        }
         function handleCamoNext() {
-            if (camoCurrentChunkIndex < camoTextChunks.length - 1) { camoCurrentChunkIndex++; updateCamoContent(); }
+            if (camoCurrentChunkIndex < camoTextChunks.length - 1) { camoCurrentChunkIndex++; updateCamoContent(); syncCamoScrollToTxt(); }
             else { if (currentFileType === 'txt') goNext(); else if (currentFileType === 'epub' && rendition) rendition.next(); }
         }
         function handleCamoPrev() {
-            if (camoCurrentChunkIndex > 0) { camoCurrentChunkIndex--; updateCamoContent(); }
+            if (camoCurrentChunkIndex > 0) { camoCurrentChunkIndex--; updateCamoContent(); syncCamoScrollToTxt(); }
             else { isNavigatingPrev = true; if (currentFileType === 'txt') goPrev(); else if (currentFileType === 'epub' && rendition) rendition.prev(); }
         }
 
@@ -2206,6 +2563,8 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
         document.getElementById('illustrator-mockup').addEventListener('wheel', handleWheelScroll, { passive: false });
         document.getElementById('modao-mockup').addEventListener('wheel', handleWheelScroll, { passive: false });
         document.getElementById('sketch-mockup').addEventListener('wheel', handleWheelScroll, { passive: false });
+        document.getElementById('wps-word-mockup').addEventListener('wheel', handleWheelScroll, { passive: false });
+        document.getElementById('wps-excel-mockup').addEventListener('wheel', handleWheelScroll, { passive: false });
 
         // =================== 设置 ===================
         function toggleTheme() {
@@ -2260,7 +2619,7 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
         }
 
         // =================== 伪装入口 / 隐藏所有 ===================
-        const allMockups = ['excel-mockup', 'customs-mockup', 'jewelry-form-mockup', 'factory-form-mockup', 'vscode-mockup', 'terminal-mockup', 'outlook-mockup', 'photoshop-mockup', 'illustrator-mockup', 'modao-mockup', 'sketch-mockup'];
+        const allMockups = ['excel-mockup', 'customs-mockup', 'jewelry-form-mockup', 'factory-form-mockup', 'vscode-mockup', 'terminal-mockup', 'outlook-mockup', 'photoshop-mockup', 'illustrator-mockup', 'modao-mockup', 'sketch-mockup', 'wps-word-mockup', 'wps-excel-mockup'];
         function hideAllMockups() { allMockups.forEach(id => document.getElementById(id).style.display = 'none'); }
 
         const camoTitles = {
@@ -2279,6 +2638,8 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
             illustrator: '主视觉-终稿.ai @ 100% (GPU Preview)',
             modao: '墨刀 - 商城App v2.1 原型',
             sketch: 'App-Design.sketch — Sketch',
+            'wps-word': '财务分析报告-2025Q1.docx - WPS Office',
+            'wps-excel': '利润表-2025Q1.xlsx - WPS Office',
         };
 
         // =================== 键盘主控 ===================
@@ -2316,8 +2677,36 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
                 let mode = document.getElementById('camouflage-industry').value;
 
                 if (isCamouflaged) {
+                    // === 正常 → 伪装：从当前阅读位置开始 ===
                     isNavigatingPrev = false;
-                    buildCamoChunks(true);
+                    // 记下当前滚动比例（章内进度）
+                    let maxScroll = txtContainer.scrollHeight - txtContainer.clientHeight;
+                    let scrollRatio = (maxScroll > 0) ? (txtContainer.scrollTop / maxScroll) : 0;
+                    camoMaxScroll = maxScroll;
+
+                    // 计算当前阅读到的大致字符位置
+                    let fullText = getNovelText();
+                    let charPos = Math.round(scrollRatio * fullText.length);
+
+                    buildCamoChunks(false);
+
+                    // 根据字符位置找到对应的 chunk
+                    if (camoTextChunks.length > 1 && fullText.length > 0) {
+                        let accumulated = 0;
+                        camoCurrentChunkIndex = 0;
+                        for (let ci = 0; ci < camoTextChunks.length; ci++) {
+                            let chunkLen = 0;
+                            let chunk = camoTextChunks[ci];
+                            if (typeof chunk === 'string') chunkLen = chunk.length;
+                            else if (Array.isArray(chunk)) chunkLen = chunk.reduce((s, c) => s + (c ? c.length : 0), 0);
+                            accumulated += chunkLen;
+                            if (accumulated >= charPos) { camoCurrentChunkIndex = ci; break; }
+                        }
+                        camoCurrentChunkIndex = Math.min(camoCurrentChunkIndex, camoTextChunks.length - 1);
+                    } else {
+                        camoCurrentChunkIndex = 0;
+                    }
+
                     hideAllMockups();
 
                     if (mode === 'customs') {
@@ -2345,6 +2734,10 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
                         document.getElementById('modao-mockup').style.display = 'flex';
                     } else if (mode === 'sketch') {
                         document.getElementById('sketch-mockup').style.display = 'flex';
+                    } else if (mode === 'wps-word') {
+                        document.getElementById('wps-word-mockup').style.display = 'flex';
+                    } else if (mode === 'wps-excel') {
+                        document.getElementById('wps-excel-mockup').style.display = 'flex';
                     } else {
                         initExcelData(mode);
                         document.getElementById('excel-mockup').style.display = 'flex';
@@ -2352,8 +2745,32 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
                     updateCamoContent();
                     document.title = camoTitles[mode] || '工作簿1 - Excel';
                 } else {
+                    // === 伪装 → 正常：把伪装进度同步回来 ===
                     hideAllMockups();
                     document.title = "文本阅读器";
+                    if (currentFileType === 'txt') {
+                        // 计算伪装读到的字符位置比例
+                        let accumulated = 0;
+                        for (let ci = 0; ci <= camoCurrentChunkIndex && ci < camoTextChunks.length; ci++) {
+                            let chunk = camoTextChunks[ci];
+                            if (typeof chunk === 'string') accumulated += chunk.length;
+                            else if (Array.isArray(chunk)) accumulated += chunk.reduce((s, c) => s + (c ? c.length : 0), 0);
+                        }
+                        let fullText = getNovelText();
+                        let charRatio = (fullText.length > 0) ? (accumulated / fullText.length) : 0;
+                        charRatio = Math.min(charRatio, 1);
+
+                        // 用字符比例反算 scrollTop
+                        let maxScroll = txtContainer.scrollHeight - txtContainer.clientHeight;
+                        let targetScroll = Math.round(charRatio * maxScroll);
+                        txtContainer.onscroll = null;
+                        txtContainer.scrollTop = targetScroll;
+                        txtContainer.onscroll = () => localStorage.setItem('novel_progress_' + currentFileName, JSON.stringify({ index: currentChapterIndex, scroll: txtContainer.scrollTop }));
+                        localStorage.setItem('novel_progress_' + currentFileName, JSON.stringify({ index: currentChapterIndex, scroll: targetScroll }));
+                        updateTxtStatusBar();
+                    } else if (currentFileType === 'epub' && rendition) {
+                        updateEpubStatusBar();
+                    }
                     restoreFocus();
                 }
                 return;
