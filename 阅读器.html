@@ -1918,7 +1918,7 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
             txtContainer.innerHTML = html;
             currentProgressText = `[Ch:${index + 1}/${txtChapters.length} W:${txtChapters[index].rawLen}]`;
             updateTxtStatusBar();
-            setTimeout(() => { txtContainer.scrollTop = scrollPos; restoreFocus(); if (isCamouflaged) { buildCamoChunks(true); updateCamoContent(); } }, 50);
+            setTimeout(() => { txtContainer.scrollTop = scrollPos; restoreFocus(); if (isCamouflaged) { buildCamoChunks(true); updateCamoContent(); syncCamoScrollToTxt(); } }, 50);
             txtContainer.onscroll = () => {
                 if (!isCamouflaged) updateTxtStatusBar();
                 localStorage.setItem('novel_progress_' + currentFileName, JSON.stringify({ index, scroll: txtContainer.scrollTop }));
@@ -1973,7 +1973,7 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
                     iframeDoc.addEventListener('wheel', handleWheelScroll, { passive: false });
                     iframeDoc.addEventListener('keydown', handleKeyDown);
                 }
-                setTimeout(() => { restoreFocus(); if (isCamouflaged) { buildCamoChunks(); updateCamoContent(); } }, 100);
+                setTimeout(() => { restoreFocus(); if (isCamouflaged) { buildCamoChunks(true); updateCamoContent(); } }, 100);
             });
             const saved = localStorage.getItem('novel_progress_' + currentFileName);
             if (saved) rendition.display(saved); else rendition.display();
@@ -1995,6 +1995,7 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
         // =================== 伪装切片引擎 ===================
         let camoTextChunks = [], camoCurrentChunkIndex = 0, isNavigatingPrev = false;
         let camoMaxScroll = 0; // 进入伪装时 txtContainer 的最大滚动像素
+        let camoEntryCharPos = 0; // 进入伪装时在 section 文本中的起始字符偏移
 
         function getNovelText() {
             let t = "";
@@ -2006,13 +2007,17 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
             return t.replace(/[\r\n]+/g, ' ').replace(/\s{2,}/g, ' ').trim();
         }
 
-        function buildCamoChunks(forceFromStart = false) {
-            let textToRead = getNovelText();
+        // entryChar: 从 section 文本的第几个字符开始切片（进入伪装时的第一句话位置）
+        // forceFromStart: true 表示强制从 chunk 0 开始（翻章节后重建）
+        function buildCamoChunks(forceFromStart = false, entryChar = 0) {
+            let fullTextToRead = getNovelText();
+            camoEntryCharPos = entryChar; // 记录切片起点，用于 getCamoStartCharPos
+            let textToRead = fullTextToRead.substring(entryChar); // 从入场位置开始切
             let mode = document.getElementById('camouflage-industry').value;
             camoTextChunks = [];
 
             if (mode === 'customs' || mode === 'jewelry-form' || mode === 'factory-form') {
-                let cs = 300; 
+                let cs = 300;
                 for (let i = 0; i < textToRead.length; i += cs) camoTextChunks.push(textToRead.substring(i, i + cs));
             } else if (mode === 'vscode') {
                 let lines = [];
@@ -2519,9 +2524,113 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
         }
 
         // =================== 伪装翻页 ===================
+        // 计算当前 chunk 末尾的字符比例（伪装读到的最后一行位置）
+        function getCamoEndCharRatio() {
+            let accumulated = 0;
+            for (let ci = 0; ci <= camoCurrentChunkIndex && ci < camoTextChunks.length; ci++) {
+                let chunk = camoTextChunks[ci];
+                if (typeof chunk === 'string') accumulated += chunk.length;
+                else if (Array.isArray(chunk)) accumulated += chunk.reduce((s, c) => s + (c ? c.length : 0), 0);
+            }
+            let fullText = getNovelText();
+            return fullText.length > 0 ? Math.min(accumulated / fullText.length, 1) : 0;
+        }
+        // 计算当前 chunk 起始的字符数（相对于 section 全文的偏移）
+        function getCamoStartCharPos() {
+            let accumulated = camoEntryCharPos; // 从入场偏移开始
+            for (let ci = 0; ci < camoCurrentChunkIndex && ci < camoTextChunks.length; ci++) {
+                let chunk = camoTextChunks[ci];
+                if (typeof chunk === 'string') accumulated += chunk.length;
+                else if (Array.isArray(chunk)) accumulated += chunk.reduce((s, c) => s + (c ? c.length : 0), 0);
+            }
+            return accumulated;
+        }
+        // 计算当前 chunk 起始的字符比例（退出伪装时用于定位正常模式的第一行）
+        function getCamoStartCharRatio() {
+            let fullText = getNovelText();
+            return fullText.length > 0 ? Math.min(getCamoStartCharPos() / fullText.length, 1) : 0;
+        }
+        // EPUB: 从 iframe 可见文字反查在 fullText 中的字符偏移（进入伪装时精确定位）
+        function getEpubVisibleCharPos(fullText) {
+            try {
+                let loc = rendition.currentLocation();
+                if (!loc || !loc.start) return 0;
+                let range = rendition.getRange(loc.start.cfi);
+                if (!range) return 0;
+                let container = range.startContainer;
+                let offset = range.startOffset;
+                let visibleText = (container.nodeType === 3)
+                    ? container.textContent.substring(offset)
+                    : container.textContent;
+                visibleText = visibleText.replace(/[\r\n]+/g, ' ').replace(/\s{2,}/g, ' ').trim();
+                if (!visibleText || visibleText.length < 4) return 0;
+                let searchKey = visibleText.substring(0, 20);
+                let idx = fullText.indexOf(searchKey);
+                return idx >= 0 ? idx : 0;
+            } catch(e) { return 0; }
+        }
+        // EPUB: 在当前 iframe 中定位 chunk 起始文字，生成精确 CFI（退出伪装时用）
+        function getEpubCfiFromChunkStart() {
+            try {
+                let chunk = camoTextChunks[camoCurrentChunkIndex];
+                let chunkText = (typeof chunk === 'string') ? chunk
+                    : (Array.isArray(chunk) ? chunk.filter(Boolean).join('') : '');
+                chunkText = chunkText.replace(/[\r\n]+/g, ' ').replace(/\s{2,}/g, ' ').trim();
+                let searchKey = chunkText.substring(0, 20);
+                if (!searchKey || searchKey.length < 3) return null;
+
+                let iframe = epubContainer.querySelector('iframe');
+                if (!iframe || !iframe.contentDocument) return null;
+
+                // 收集所有文本节点并拼接，同时记录每节点在缓冲区中的起止位置
+                let walker = iframe.contentDocument.createTreeWalker(
+                    iframe.contentDocument.body, NodeFilter.SHOW_TEXT, null, false);
+                let nodes = [], buf = '', nd;
+                while ((nd = walker.nextNode())) {
+                    nodes.push({ node: nd, start: buf.length });
+                    buf += nd.textContent;
+                }
+
+                // 对 buf 做与 searchKey 相同的规范化后查找
+                let normBuf = buf.replace(/[\r\n]+/g, ' ').replace(/\s{2,}/g, ' ');
+                let normIdx = normBuf.indexOf(searchKey);
+                if (normIdx < 0) return null;
+
+                // 映射回原始 buf 中的位置（近似：规范化前后各字符偏移≈相同）
+                let targetPos = normIdx;
+                let targetNode = null, targetOffset = 0;
+                for (let i = 0; i < nodes.length; i++) {
+                    let entry = nodes[i];
+                    let nextStart = (i + 1 < nodes.length) ? nodes[i + 1].start : buf.length;
+                    if (nextStart > targetPos) {
+                        targetNode = entry.node;
+                        targetOffset = Math.max(0, Math.min(targetPos - entry.start, entry.node.textContent.length));
+                        break;
+                    }
+                }
+                if (!targetNode) return null;
+
+                let range = iframe.contentDocument.createRange();
+                range.setStart(targetNode, targetOffset);
+                range.collapse(true);
+
+                let loc = rendition.currentLocation();
+                let section = book.spine.get(loc.start.cfi);
+                if (section && typeof section.cfiFromRange === 'function') {
+                    return section.cfiFromRange(range);
+                }
+                return null;
+            } catch(e) {
+                console.warn('getEpubCfiFromChunkStart error:', e);
+                return null;
+            }
+        }
         function syncCamoScrollToTxt() {
-            if (currentFileType !== 'txt' || camoTextChunks.length <= 1 || camoMaxScroll <= 0) return;
-            let targetScroll = Math.floor(camoMaxScroll * camoCurrentChunkIndex / (camoTextChunks.length - 1));
+            if (currentFileType !== 'txt' || camoTextChunks.length === 0) return;
+            let maxScroll = txtContainer.scrollHeight - txtContainer.clientHeight;
+            if (maxScroll <= 0) return;
+            // 用 chunk 起始位置（第一行）而非末尾同步 TXT 滚动
+            let targetScroll = Math.round(getCamoStartCharRatio() * maxScroll);
             txtContainer.onscroll = null;
             txtContainer.scrollTop = targetScroll;
             txtContainer.onscroll = () => localStorage.setItem('novel_progress_' + currentFileName, JSON.stringify({ index: currentChapterIndex, scroll: txtContainer.scrollTop }));
@@ -2679,33 +2788,24 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
                 if (isCamouflaged) {
                     // === 正常 → 伪装：从当前阅读位置开始 ===
                     isNavigatingPrev = false;
-                    // 记下当前滚动比例（章内进度）
-                    let maxScroll = txtContainer.scrollHeight - txtContainer.clientHeight;
-                    let scrollRatio = (maxScroll > 0) ? (txtContainer.scrollTop / maxScroll) : 0;
-                    camoMaxScroll = maxScroll;
 
-                    // 计算当前阅读到的大致字符位置
                     let fullText = getNovelText();
-                    let charPos = Math.round(scrollRatio * fullText.length);
+                    let charPos = 0;
 
-                    buildCamoChunks(false);
-
-                    // 根据字符位置找到对应的 chunk
-                    if (camoTextChunks.length > 1 && fullText.length > 0) {
-                        let accumulated = 0;
-                        camoCurrentChunkIndex = 0;
-                        for (let ci = 0; ci < camoTextChunks.length; ci++) {
-                            let chunkLen = 0;
-                            let chunk = camoTextChunks[ci];
-                            if (typeof chunk === 'string') chunkLen = chunk.length;
-                            else if (Array.isArray(chunk)) chunkLen = chunk.reduce((s, c) => s + (c ? c.length : 0), 0);
-                            accumulated += chunkLen;
-                            if (accumulated >= charPos) { camoCurrentChunkIndex = ci; break; }
-                        }
-                        camoCurrentChunkIndex = Math.min(camoCurrentChunkIndex, camoTextChunks.length - 1);
-                    } else {
-                        camoCurrentChunkIndex = 0;
+                    if (currentFileType === 'txt') {
+                        // TXT: 用 scrollTop 比例算字符位置
+                        let maxScroll = txtContainer.scrollHeight - txtContainer.clientHeight;
+                        let scrollRatio = (maxScroll > 0) ? (txtContainer.scrollTop / maxScroll) : 0;
+                        camoMaxScroll = maxScroll;
+                        charPos = Math.round(scrollRatio * fullText.length);
+                    } else if (currentFileType === 'epub' && rendition) {
+                        // EPUB: 从 iframe 实际可见的第一个字搜索在 fullText 中的位置
+                        charPos = getEpubVisibleCharPos(fullText);
                     }
+
+                    // 从 charPos 开始切片：chunk 0 = 普通模式第一句话，天然对齐
+                    buildCamoChunks(false, charPos);
+                    camoCurrentChunkIndex = 0;
 
                     hideAllMockups();
 
@@ -2745,31 +2845,44 @@ c=a.heap_max+1;c<V;c++)d=a.heap[c],f=i[2*i[2*d+1]+1]+1,f>o&&(f=o,p++),i[2*d+1]=f
                     updateCamoContent();
                     document.title = camoTitles[mode] || '工作簿1 - Excel';
                 } else {
-                    // === 伪装 → 正常：把伪装进度同步回来 ===
+                    // === 伪装 → 正常：直接使用 syncCamoScrollToTxt 已维护的 scrollTop ===
                     hideAllMockups();
                     document.title = "文本阅读器";
                     if (currentFileType === 'txt') {
-                        // 计算伪装读到的字符位置比例
-                        let accumulated = 0;
-                        for (let ci = 0; ci <= camoCurrentChunkIndex && ci < camoTextChunks.length; ci++) {
-                            let chunk = camoTextChunks[ci];
-                            if (typeof chunk === 'string') accumulated += chunk.length;
-                            else if (Array.isArray(chunk)) accumulated += chunk.reduce((s, c) => s + (c ? c.length : 0), 0);
-                        }
-                        let fullText = getNovelText();
-                        let charRatio = (fullText.length > 0) ? (accumulated / fullText.length) : 0;
-                        charRatio = Math.min(charRatio, 1);
-
-                        // 用字符比例反算 scrollTop
+                        // 退出时明确把 scrollTop 定到 chunk 起始位置（伪装第一行 = 正常模式第一行）
                         let maxScroll = txtContainer.scrollHeight - txtContainer.clientHeight;
-                        let targetScroll = Math.round(charRatio * maxScroll);
-                        txtContainer.onscroll = null;
-                        txtContainer.scrollTop = targetScroll;
+                        if (maxScroll > 0) {
+                            let targetScroll = Math.round(getCamoStartCharRatio() * maxScroll);
+                            txtContainer.onscroll = null;
+                            txtContainer.scrollTop = targetScroll;
+                        }
                         txtContainer.onscroll = () => localStorage.setItem('novel_progress_' + currentFileName, JSON.stringify({ index: currentChapterIndex, scroll: txtContainer.scrollTop }));
-                        localStorage.setItem('novel_progress_' + currentFileName, JSON.stringify({ index: currentChapterIndex, scroll: targetScroll }));
+                        localStorage.setItem('novel_progress_' + currentFileName, JSON.stringify({ index: currentChapterIndex, scroll: txtContainer.scrollTop }));
                         updateTxtStatusBar();
                     } else if (currentFileType === 'epub' && rendition) {
-                        updateEpubStatusBar();
+                        // 用 chunk 起始文字在 iframe 中定位，生成精确 CFI 后一步跳转
+                        let targetCfi = getEpubCfiFromChunkStart();
+                        if (targetCfi) {
+                            rendition.display(targetCfi);
+                        } else {
+                            // 降级：用 chunk 起始字符比例 + locations 估算
+                            let startRatio = getCamoStartCharRatio();
+                            let loc = rendition.currentLocation();
+                            if (loc && loc.start && book.locations && book.locations.total > 0) {
+                                let currentPct = book.locations.percentageFromCfi(loc.start.cfi);
+                                let loc2 = rendition.currentLocation();
+                                let totalPages = loc2.start.displayed.total;
+                                let currentPage = loc2.start.displayed.page;
+                                let targetPage = Math.max(1, Math.min(totalPages, Math.round(startRatio * totalPages) + 1));
+                                let diff = targetPage - currentPage;
+                                if (diff !== 0) {
+                                    let pctPerPage = 1 / book.locations.total;
+                                    let targetPct = Math.max(0, Math.min(0.999, currentPct + diff * pctPerPage));
+                                    rendition.display(book.locations.cfiFromPercentage(targetPct));
+                                }
+                            }
+                            updateEpubStatusBar();
+                        }
                     }
                     restoreFocus();
                 }

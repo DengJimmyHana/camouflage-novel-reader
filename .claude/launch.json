@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "reader",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "C:/Users/Jimmy/Desktop/新建文件夹/阅读器", "-p", "8765", "-c-1"],
+      "port": 8765
+    }
+  ]
+}
